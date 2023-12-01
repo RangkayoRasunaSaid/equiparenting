@@ -1,0 +1,51 @@
+body {
+    font-family: 'Lora', serif;
+    font-family: 'Poppins', sans-serif;
+    color: #675893;
+    background-size: cover;
+    background-image: url("https://cdn.dribbble.com/users/3091124/screenshots/6632907/violet-watercolor-texture-background_1083-172_1x.jpg?resize=400x300&vertical=center");
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ceritaku {
+    background-color: #e8def7;
+}
+
+.masuk {
+    border-style: solid !important;
+    border-color: #675893 !important;
+}
+
+.daftar {
+    background-color: #675893;
+    color: white;
+}
+
+
+.navbar-brand img {
+    width: 150px;
+    height: 60px;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+    resize: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .masuk, .daftar {
+    background-color: transparent;
+    color: #675893;
+  }
+  .border {
+    border-color: white !important;
+  }
+}
