@@ -19,39 +19,39 @@
     </div>
     <div class='container'>
         <form class='form'>
+
           <div class='input-box'>
             <div class='field-input'>
-              <label>Username</label><br />
-              <input type='text' placeholder='' required></input>
+              <label for="username">Username</label><br>
+              <input id='username' type='text' name="username" required></input>
             </div>
             <div class='field-input'>
-              <label>E-mail</label><br />
-              <input type='email' placeholder='' required></input>
+              <label for="email">E-mail</label><br>
+              <input id='email' type='email' name="email" required></input>
             </div>
             <div class='field-input'>
-              <label>Password</label><br />
-              <input type='password' placeholder='' required></input> 
+              <label for="password">Password</label><br>
+              <input id='password' type='password' name="password" required></input> 
             </div>
             <div class='field-input'>
-              <label>Konfirmasi Password</label><br />
-              <input type='password' placeholder='' required></input>
+              <label for="confirmPassword">Konfirmasi Password</label><br>
+              <input id='confirmPassword' type='password' name="confirmPassword" required></input>
             </div>
 
             <div class="check">
                 <label>
-                    <input type="checkbox" name="setuju" required>
+                    <input id="agree" type="checkbox" name="agree" required>
                     <div class="text">
                         <p>Saya menyetujui <a href="#">Syarat & Ketentuan </a>dan </p>
                         <p><a href="#"><br>Kebijakan Privasi </a>yang berlaku</p>
                     </div>
                 </label>
             </div>
-            
-            <button>Daftar</button>
-            
-            <div class='done'><span>Sudah memiliki akun? <a href='#'>Masuk</a></span></div>
+
+            <button id="button" type="submit">Daftar</button>  
           </div>
         </form>
+        <div class='done'><span>Sudah memiliki akun? <a href='login-page.html'>Masuk</a></span></div>
     </div>
 </body>
 </html>

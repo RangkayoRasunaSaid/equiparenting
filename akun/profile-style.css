@@ -58,9 +58,39 @@ body {
 .ubah-profile {
     margin-bottom: 40px;
 }
-.profile-picture img {
+
+/*profile-pic*/
+.profile-picture {
     width: 90px;
+    height: 90px;
+    border-radius: 50%;
 }
+
+#picture {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #675893;
+    border-width: 3px;
+}
+
+#file {
+    display: none;
+}
+
+#upload {
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #675893;
+    padding: 3px 0 3px 7px;
+    border-radius: 50%;
+    transform: translateX(-100%);   
+}
+/*end*/
 
 .ubah {
     display: flex;
@@ -183,8 +213,22 @@ body {
         margin-bottom: 20px;
     }
 
-    .profile-picture img {
+    .profile-picture {
         width: 45px;
+        height: 45px;
+    }
+
+    #picture {
+        width: 45px;
+        height: 45px;
+        border-width: 2px;
+    }
+
+    #upload {
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        padding: 0 0 0 3px;
     }
 
     .ubah {
