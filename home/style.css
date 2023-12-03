@@ -7,11 +7,12 @@ body{
   background-repeat: no-repeat;
   font-family: 'Nunito', Arial, Helvetica, sans-serif;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .featureTitle{
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 900;
   line-height: 1.2;
+  color: #675893;
 }
 .container{
   margin-right: auto;
@@ -43,8 +44,6 @@ img {
   -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
 }
-
-
 .card {
   margin: 0 0.5em;
   border-radius: 0;
@@ -52,7 +51,6 @@ img {
   font-size: 0.9em;
   height: 100%;
 }
-
 .footer {
   position: relative;
   bottom: 0;
