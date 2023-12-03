@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equiparenting</title>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg sticky-top navbar-light shadow p-3 mb-5 bg-body rounded fixed-top"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/assets/logo.svg" alt="Logo" height="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mx-auto">
+            <li class="nav-item mx-1">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown mx-1">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownParenting"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Parenting
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownParenting"
+              >
+                <li><a class="dropdown-item" href="#">Tips Parenting</a></li>
+                <li><a class="dropdown-item" href="#">Tips Permainan</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-1">
+              <a class="nav-link" href="#">Video</a>
+            </li>
+            <li class="nav-item mx-1">
+              <a class="nav-link" href="#">Ceritaku</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-1">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item mx-1">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <div class="container-fluid mt-4 mb-4" id="firstSection">
+      <div class="card mb-3">
+        <div class="row g-0" id="imageFirstSection">
+          <div class="col">
+            <img
+              src="https://asset.kompas.com/crops/CpMYPbRFG_8H78taXVJhpNNAu74=/0x0:1000x667/1200x800/data/photo/2018/03/23/2501395188.jpg"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF FIRST SECTION -->
+
+    <div class="container-fluid mt-4 mb-4" id="secondSection">
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-md-8">
+          <h3>Belajar & Berkembang</h3>
+          <p>Dapatkan tips dan aktivitas berdasarkan usia anak</p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-12 col-md-8">
+          <div class="row justify-content-between">
+            <div class="col-md-3 mb-3">
+              <i
+                class="bi-alarm"
+                style="font-size: 2rem; color: rgb(154, 20, 237)"
+              ></i>
+              <p class="mt-2">Pola Asuh</p>
+            </div>
+            <div class="col-md-3 mb-3">
+              <i
+                class="bi bi-chat-heart-fill"
+                style="font-size: 2rem; color: rgb(154, 20, 237)"
+              ></i>
+              <p class="mt-2">Emosi & Self Awareness</p>
+            </div>
+            <div class="col-md-3 mb-3">
+              <i
+                class="bi bi-chat-square-heart-fill"
+                style="font-size: 2rem; color: rgb(154, 20, 237)"
+              ></i>
+              <p class="mt-2">Perilaku</p>
+            </div>
+            <div class="col-md-3 mb-3">
+              <i
+                class="bi bi-house-heart-fill"
+                style="font-size: 2rem; color: rgb(154, 20, 237)"
+              ></i>
+              <p class="mt-2">Sosial</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END OF SECOND SECTION -->
+    <div class="container-fluid mt-4 mb-4" id="carouselCard">
+      <div id="carouselExampleControls" class="carousel">
+        <div id="carouselExampleControls" class="carousel">
+          <div class="carousel-inner">
+            <!-- Cards akan diisi di sini berdasarkan data API -->
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container-fluid mt-4 mb-4" id="carouselCard">
+      <div id="carouselExampleControls" class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card">
+              <div class="card-img-top">
+                <img src="" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title 1</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Laborum dolor et dolorem officiis. In expedita sint possimus,
+                  dicta iste rerum culpa porro voluptate explicabo, quas omnis
+                  consectetur earum. Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Cumque incidunt sapiente, rem, earum
+                  molestiae modi recusandae neque facere voluptas aspernatur
+                  quam aut ipsa.
+                </p>
+                <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card d-flex align-items-stretch">
+              <div class="card-img-top">
+                <img src="" alt="..." />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title 2</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Molestiae soluta qui nostrum? Some quick example text to build
+                  on the card title and make up the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div> -->
+
+    <!-- END OF CAROUSEL CARD  -->
+
+    <footer class="footer bg-light text-center text-lg-start">
+      <div class="container-fluid p-4" id="footerNavLink">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text">Parenting</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#" class="text-dark">Pola Asuh</a></li>
+              <li><a href="#" class="text-dark">Emosi & Self Awareness</a></li>
+              <li><a href="#" class="text-dark">Perilaku</a></li>
+              <li><a href="#" class="text-dark">Sosial</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Kontak</h5>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-3">
+                <i class="bi bi-telephone-fill me-2"></i>
+                <span class="text-dark">(+62) 851-8888-1200</span>
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-envelope-fill me-2"></i>
+                <span class="text-dark">equi.parenting@gmail.com</span>
+              </li>
+              <li>
+                <i class="bi bi-instagram me-2"></i>
+                <span class="text-dark">instagram.com/equiparenting</span>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="col-lg-4 col-md-12 d-flex align-items-center justify-content-center justify-content-lg-end"
+          >
+            <img src="/assets/logo.svg" height="60" alt="" />
+          </div>
+        </div>
+      </div>
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(113, 14, 167, 0.2)"
+      >
+        <p class="mb-0 text-muted">
+          © 2023 equiparenting.com. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- END OF FOOTER -->
+
+    <!-- SCRIPT COLLECTIONS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

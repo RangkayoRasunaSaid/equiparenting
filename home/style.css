@@ -1,0 +1,167 @@
+/* Global CSS */
+.container{
+  margin-right: auto;
+  margin-left: auto;
+}
+#firstSection, #secondSection,#carouselCard{
+  margin: auto;
+  padding: 1rem 3rem;
+}
+#imageFirstSection {
+  flex-direction: row-reverse;
+}
+#secondSection{
+  background-color: rgb(234, 216, 251);
+}
+#secondSection > .row{
+  padding: 0.5rem 0rem;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card {
+  margin: 0 0.5em;
+  border-radius: 0;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  font-size: 0.9em;
+  height: 100%;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Sesuaikan tinggi dengan kebutuhan footer */
+  height: 100px;
+}
+#footerNavLink > .row{
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+
+/* Media query CSS */
+@media screen and (min-width: 930px) {
+  .carousel-inner {
+    display: flex;
+  }
+  .carousel-item {
+    display: block;
+    margin-right: 0;
+    flex: 0 0 calc(100% / 5);
+  }
+  /* pengganti d-flex dan align-self-star di class */
+  .carousel-item .card {
+    flex: 1;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .btn-primary {
+    margin-top: auto; /*button efek align-self-start*/
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    width: 6vh;
+    height: 6vh;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 0.8;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 929px) {
+  .carousel-inner {
+    display: flex;
+  }
+  .carousel-item {
+    display: block;
+    margin-right: 0;
+    flex: 0 0 calc(100% / 3);
+  }
+  /* pengganti d-flex dan align-self-star di class */
+  .carousel-item .card {
+    flex: 1;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .btn-primary {
+    margin-top: auto; /*button efek align-self-start*/
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 4vh;
+    height: 4vh;
+    background-color: rgb(241, 1, 249);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .carousel-control-prev {
+    left: -30px;
+  }
+  .carousel-control-next {
+    right: -30px;
+  }
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  #carouselCard {
+    padding: 0 4rem;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    background-color: rgba(40, 205, 246, 0.51);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .carousel-control-prev {
+    left: -10px;
+  }
+  .carousel-control-next {
+    right: -10px;
+  }
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 0.8;
+  }
+}
+@media (max-width: 1023px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 6rem; /* Atur tinggi navbar jika diperlukan */
+    right: 1rem;
+    z-index: 1000;
+    width: 50%;
+    height: 300px;
+    background-color: #29053c; /* Atur warna latar belakang navbar */
+    padding: 1rem;
+  }
+  .navbar-light .navbar-nav .nav-link{
+    color: #e2acff;
+  }
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(255, 255, 255);
+}
+}
