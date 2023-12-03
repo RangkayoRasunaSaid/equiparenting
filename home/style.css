@@ -51,6 +51,14 @@ img {
   font-size: 0.9em;
   height: 100%;
 }
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12; /* Jumlah baris teks yang ingin ditampilkan sebelum ellipsis */
+  -webkit-box-orient: vertical;
+}
+
 .footer {
   position: relative;
   bottom: 0;
