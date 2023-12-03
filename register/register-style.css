@@ -7,15 +7,39 @@
 }
 
 body {
+    min-height: 100vh;
     background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     padding-bottom: 5vw;
 }
 
+/*navbar*/
 .Navbar {
+    display: flex;
     background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #675893;
+    padding: 15px;
+    margin: 2vw;
+}
+
+.menu a:hover {
+    background-color: #E8DEF7;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
@@ -70,7 +94,7 @@ body {
 }
 
 .field-input input {
-    width: 100%;
+    width: 440px;
     height: 50px;
     padding: 15px;
     border: 1px solid #ccc;
@@ -87,27 +111,39 @@ body {
     outline-style:solid;
 }
 
-.done {
-    margin-top: 30px;
-    color: #675893;
-    margin-bottom: 20px;
+.check label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
 }
 
-.done a {
+label {
+    color: #675893;
+    margin-bottom: 50px;
+}
+  
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.text p {
+    margin-bottom: -20px;
+    font-size: 14px;
+}  
+  
+.text p a {
     text-decoration: none;
-    font-weight: bold;
     color: #675893;
-}
-
-.done a:hover {
-    color: #ccc;
+    font-weight: bold;
 }
 
 button {
-    width: 30%;
+    width: 150px;
     height: 45px;
     margin: 0 auto;
     display: block;
+    margin-top: 25px;
     padding: 10px;
     background-color: #6758938f;
     color: white;
@@ -122,61 +158,18 @@ button:hover {
     background-color: #675893;
 }
 
+.done {
+    margin-top: 30px;
+    color: #675893;
+}
 
-/* Mobile */
-@media screen and (max-width: 768px) {
-    .logo img {
-        width: 90px;
-        margin-left: 20px;
-    }
+.done a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #675893;
+    margin-left: 160px;
+}
 
-    .web-header {
-        margin-top: 30px;
-    }
-
-    .web-header header {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .web-header span {
-        font-size: 15px;
-    }
-
-    .container {
-        width: 250px;
-    }
-
-    .field-input {
-        margin-bottom: 10px;
-    }
-
-    .field-input label {
-        font-size: small;
-        margin-bottom: -20px;
-    }
-
-    .field-input input {
-        height: 25px;
-        font-size: small;
-    }
-
-    label {
-        margin-bottom: 25px;
-    }
-
-    button {
-        height: 25px;
-        font-size: 10px;
-        padding: 4px;
-    }
-
-    .done {
-        font-size: 10px;
-        margin-top: 15px;
-    }
-
-    .done a {
-        margin-left: 30px;
-    }
+.done a:hover {
+    color: #ccc;
 }
