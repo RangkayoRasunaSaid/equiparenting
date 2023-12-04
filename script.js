@@ -136,68 +136,100 @@ document.addEventListener('DOMContentLoaded', function() {
   
     const userDiv = document.createElement('div');
     userDiv.classList.add('d-flex', 'align-items-center');
-
+  
     const avatarContainer = document.createElement('div');
     avatarContainer.classList.add('me-3', 'square-image-container', 'flex-shrink-0');
-    const avatarImg = document.createElement('img');
-    avatarImg.src = thread.avatar;
-    avatarImg.classList.add('square-image');
-
+  
+    // Check if thread.avatar is empty
+    if (thread.avatar) {
+      const avatarImg = document.createElement('img');
+      avatarImg.src = thread.avatar;
+      avatarImg.classList.add('square-image');
+      avatarContainer.appendChild(avatarImg);
+    } else {
+      // Create default avatar structure
+      const defaultAvatar = document.createElement('div');
+      defaultAvatar.classList.add('rounded-circle', 'bg-body', 'd-flex', 'justify-content-center', 'p-4');
+  
+      const defaultAvatarImg = document.createElement('img');
+      defaultAvatarImg.src = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
+      defaultAvatarImg.width = '20';
+      defaultAvatarImg.height = '20';
+  
+      defaultAvatar.appendChild(defaultAvatarImg);
+      avatarContainer.appendChild(defaultAvatar);
+    }
+  
     const userInfoDiv = document.createElement('div');
     userInfoDiv.classList.add('flex-grow-1');
     const threadTitle = document.createElement('h5');
     threadTitle.classList.add('fw-bold');
     threadTitle.textContent = thread.title;
-
+  
     userInfoDiv.appendChild(threadTitle);
-
+  
     const username = document.createElement('p');
     username.classList.add('fw-medium', 'm-0');
     username.textContent = thread.username;
-    //userInfoDiv.appendChild(threadTitle);
     userInfoDiv.appendChild(username);
-
+  
     const contentP = document.createElement('p');
     contentP.classList.add('mt-4');
     contentP.textContent = thread.content;
-
-    avatarContainer.appendChild(avatarImg);
+  
     userDiv.appendChild(avatarContainer);
     userDiv.appendChild(userInfoDiv);
     threadDiv.appendChild(userDiv);
     threadDiv.appendChild(contentP);
   
     return threadDiv;
-    }
-    
-    function createCommentElement(comment) {
-      const commentDiv = document.createElement('div');
-    
-      const picName = document.createElement('div');
-      picName.classList.add('d-flex', 'align-items-center', 'mt-4');
+  }
+      
+  function createCommentElement(comment) {
+    const commentDiv = document.createElement('div');
   
-      const avatarContainer = document.createElement('div');
-      avatarContainer.classList.add('me-3', 'comment-image-container');
+    const picName = document.createElement('div');
+    picName.classList.add('d-flex', 'align-items-center', 'mt-4');
+  
+    const avatarContainer = document.createElement('div');
+    avatarContainer.classList.add('me-3', 'comment-image-container');
+  
+    // Check if comment.avatar is empty
+    if (comment.avatar) {
       const avatarImg = document.createElement('img');
       avatarImg.src = comment.avatar;
       avatarImg.classList.add('square-image');
-  
-      const username = document.createElement('h6');
-      username.classList.add('fw-bolder', 'm-0');
-      username.textContent = comment.username;
-  
-      const commentContent = document.createElement('p');
-      commentContent.classList.add('ms-5', 'ps-1');
-      commentContent.textContent = comment.content;
-  
       avatarContainer.appendChild(avatarImg);
-      picName.appendChild(avatarContainer);
-      picName.appendChild(username);
-      commentDiv.appendChild(picName);
-      commentDiv.appendChild(commentContent);
-    
-      return commentDiv;
+    } else {
+      // Create default avatar structure
+      const defaultAvatar = document.createElement('div');
+      defaultAvatar.classList.add('rounded-circle', 'bg-body', 'd-flex', 'justify-content-center', 'p-1');
+  
+      const defaultAvatarImg = document.createElement('img');
+      defaultAvatarImg.src = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
+      defaultAvatarImg.width = '20';
+      defaultAvatarImg.height = '20';
+  
+      defaultAvatar.appendChild(defaultAvatarImg);
+      avatarContainer.appendChild(defaultAvatar);
     }
+  
+    const username = document.createElement('h6');
+    username.classList.add('fw-bolder', 'm-0');
+    username.textContent = comment.username;
+  
+    const commentContent = document.createElement('p');
+    commentContent.classList.add('ms-5', 'ps-1');
+    commentContent.textContent = comment.content;
+  
+    picName.appendChild(avatarContainer);
+    picName.appendChild(username);
+    commentDiv.appendChild(picName);
+    commentDiv.appendChild(commentContent);
+  
+    return commentDiv;
+  }
+    
 });
     
 // Function to show the post form and hide the threads
