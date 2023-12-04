@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #675893;
     background-size: cover;
-    background-image: url("https://cdn.dribbble.com/users/3091124/screenshots/6632907/violet-watercolor-texture-background_1083-172_1x.jpg?resize=400x300&vertical=center");
+    background-image: url("background.jpg");
 }
 
 .nav-link {
@@ -35,17 +35,58 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-textarea {
-    resize: none;
+div.form-control.rounded-5.d-flex {
+    display: inline-block;
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+input.form-control.rounded-5.form-control-lg.fw-bold{
+    border:0.7em solid white !important;
+}
+
+textarea{
+    border:0.7em solid white !important;
+}
+
+.post-button {
+    background-color: #a89bc5;
+    color: #fff;
+}
+
+.square-image-container,
+.comment-image-container {
+  width: 68px;
+  height: 68px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+
+.square-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.comment-image-container {
+  width: 36px;
+  height: 36px;
 }
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  .masuk, .daftar {
+  a.masuk, a.daftar {
     background-color: transparent;
     color: #675893;
   }
-  .border {
+  a.border {
     border-color: white !important;
   }
 }
