@@ -1,24 +1,48 @@
 /* Global CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&family=Happy+Monkey&family=Karla:wght@400;500&family=Lato:wght@400;700;900&family=Montserrat:wght@300;400;500;600&family=Nunito:wght@400;500;700;900&family=Open+Sans:wght@400;500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700;900&family=Source+Sans+3:wght@300;400;500&display=swap');
+
+body{
+  background-image: url(https://s3-alpha-sig.figma.com/img/376a/56f3/a93ac92f2056f6c2c2468a55eaae0ee4?Expires=1702252800&Signature=kJPz~tjdlb~thNJrsN3qa~ol~TRsDID6hGGMT3dHZ6soEXe4EW3ShQz4mcMoZefYHupcuaVrs-6HKMm8ej9YjZ4NtQmNKfTnxxyRLNUzGgr3aENUAQA~yd5KGODILKLpvm-RphzKnr5bDib~I4253H7~kinBZMMGPK6yoU7JnrUM4-fxssTWSBWsieQjdPpGWs2SOWgQWUT1RfsGFcJyNDEM-wvyZxHgp807h4wr8kpOijIxLZy8tF-XO2tAzNR2jJuPsveFjPu2uR0SJGKXMtma2eaO9ehLmqCuClK-EtQl7guLkFOK~bybfPI6ayajDjV1GsbaEXKiEWKO2nsxTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-repeat: no-repeat;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .featureTitle{
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #675893;
+}
 .container{
   margin-right: auto;
   margin-left: auto;
 }
 #firstSection, #secondSection,#carouselCard{
   margin: auto;
-  padding: 1rem 3rem;
+  padding: 0 3rem;
 }
 #imageFirstSection {
   flex-direction: row-reverse;
 }
 #secondSection{
-  background-color: rgb(234, 216, 251);
+  background-color: #e0cdfb;
 }
 #secondSection > .row{
-  padding: 0.5rem 0rem;
+  padding: 1.5rem 0rem;
 }
 img {
   max-width: 100%;
   max-height: 100%;
+}
+.trapezoid-crop {
+  width: 63vw; /* Sesuaikan dengan lebar gambar yang ingin di-crop */
+  height: 85vh; /* Sesuaikan dengan tinggi gambar yang ingin di-crop */
+  max-width: none;
+  background-image: url('https://s3-alpha-sig.figma.com/img/be51/f63c/fe092f9645333f272b9a8ec3d2f79021?Expires=1702252800&Signature=STIvJMtX5Qfx7ch1YByEG3k9sxWJ7D8jVQJ1SZks0IIzjE2jEKr5icN2PAJpfLLQ4qygA0A0i7ljy14H8rPLTVZWUnLmp1F4aV2cWQwqpuBmtK~PI1VxqALVhYQaztS~hneJkyGdl6WDxS9FmeGOIN1DsWDZR1Dnz3x1u2eyfuvcJNnKRhlLaPSN19hmVgMh2IlKEUffqqlsaikZvllf7F2F9lvLMdgQRBTBFWUAKbUISEeGNmpuHPPZjK6PuALBVAKqbV9NAErQzE0z4B5iZxVbAo6CLp7hEXDHGm6XnWaX9u~zpg2PHLcnuLBl0aduKk36X3iDbFLQ~NDzblEXWw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'); /* Ganti dengan URL gambar yang ingin di-crop */
+  background-size: cover;
+  -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
 }
 .card {
   margin: 0 0.5em;
@@ -27,18 +51,28 @@ img {
   font-size: 0.9em;
   height: 100%;
 }
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12; /* Jumlah baris teks yang ingin ditampilkan sebelum ellipsis */
+  -webkit-box-orient: vertical;
+}
+
 .footer {
   position: relative;
   bottom: 0;
-  width: 100%;
-  /* Sesuaikan tinggi dengan kebutuhan footer */
-  height: 100px;
+  width: auto;
 }
 #footerNavLink > .row{
   margin: 0;
   padding: 2rem 1rem;
+  background-color: #675893;
+  color: white;
 }
-
+#footerNavLink{
+  padding: 0;
+}
 
 /* Media query CSS */
 @media screen and (min-width: 930px) {
