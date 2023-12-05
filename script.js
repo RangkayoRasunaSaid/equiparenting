@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const apiUrlComments = 'https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads/';
     document.getElementById('writingView').style.display = 'none';
 
+    // Call the function to update the navbar on page load
+    updateNavbar();    
+
     // Fetch threads from the API
     fetch(apiUrlThreads)
     .then(response => response.json())
@@ -38,7 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const textarea = document.createElement('textarea');
             textarea.classList.add('form-control', 'mt-3');
             textarea.setAttribute('rows', '1');
-            textarea.setAttribute('placeholder', 'Tambahkan komentar...');
+
+            // Check if currentUser exists
+            if (!localStorage.getItem('currentUser')) {
+                // If currentUser doesn't exist, change placeholder and add event listener for redirection
+                textarea.setAttribute('placeholder', 'Sign in to comment');
+                textarea.classList.add('text-center');
+                textarea.style.cursor = 'pointer';
+                textarea.addEventListener('click', function() {
+                    window.location.href = 'akun/login-page.html';
+                });
+            } else {
+                // If currentUser exists, set the regular placeholder
+                textarea.setAttribute('placeholder', 'Tambahkan komentar...');
+            }
             
             // Add a span to display characters left
             const charactersLeftSpan = document.createElement('p');
@@ -234,6 +250,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
 // Function to show the post form and hide the threads
 function showPostForm() {
+    if (!localStorage.getItem('currentUser')) {
+        window.location.href = 'akun/login-page.html';
+    }
     // Hide threads
     document.getElementById('threadView').style.display = 'none';
 
@@ -251,20 +270,64 @@ function showPostForm() {
     const closeButton = document.createElement('h4');
     closeButton.setAttribute('type', 'button');
     closeButton.innerHTML = '<i class="fas fa-times"></i>';
-
+    
+    // Create a container for the input and character count span
+    const inputContainer = document.createElement('div');
+    inputContainer.classList.add('position-relative', 'w-100');
+    
     const titleInput = document.createElement('input');
     titleInput.setAttribute('type', 'text');
-    titleInput.classList.add('form-control', 'rounded-5', 'form-control-lg', 'fw-bold', 'mt-3');
+    titleInput.classList.add('form-control', 'rounded-5', 'form-control-lg', 'fw-bold');
     titleInput.setAttribute('id', 'postTitle');
     titleInput.setAttribute('required', 'true');
+    titleInput.setAttribute('maxlength', '50'); // Set the character limit to 50
     titleInput.setAttribute('placeholder', 'Judul Cerita');
+    
+    // Create a span to display the character count
+    const charCountSpan = document.createElement('span');
+    charCountSpan.classList.add('border-0', 'text-muted', 'input-group-text', 'bg-transparent', 'm-0', 'position-absolute', 'end-0', 'bottom-0');
+    charCountSpan.textContent = '0/50';
+    
+    // Add an input event listener to update the character count
+    titleInput.addEventListener('input', function() {
+      charCountSpan.textContent = this.value.length + '/50';
+    });
+    
+    // Append the input and character count span to the container
+    inputContainer.appendChild(titleInput);
+    inputContainer.appendChild(charCountSpan);
+
+    const contentGroup = document.createElement('div');
+    contentGroup.classList.add('input-group', 'mt-3');
+
+    // Create a container for the textarea and character count span
+    const textareaContainer = document.createElement('div');
+    textareaContainer.classList.add('position-relative', 'w-100');
 
     const contentTextarea = document.createElement('textarea');
-    contentTextarea.classList.add('form-control', 'rounded-5', 'fs-5', 'mt-3');
+    contentTextarea.classList.add('form-control', 'rounded-5', 'fs-5');
     contentTextarea.setAttribute('id', 'postContent');
-    contentTextarea.setAttribute('rows', '10');
+    contentTextarea.setAttribute('rows', '7');
     contentTextarea.setAttribute('required', 'true');
+    contentTextarea.setAttribute('maxlength', '200'); // Set the character limit to 200
     contentTextarea.setAttribute('placeholder', 'Tulis cerita parentingmu disini');
+
+    // Create a span to display the character count
+    const charCountSpanContent = document.createElement('span');
+    charCountSpanContent.classList.add('border-0', 'text-muted', 'input-group-text', 'bg-transparent', 'm-0', 'position-absolute', 'end-0', 'bottom-0');
+    charCountSpanContent.textContent = '0/200';
+
+    // Add an input event listener to update the character count
+    contentTextarea.addEventListener('input', function() {
+      charCountSpanContent.textContent = this.value.length + '/200';
+    });
+
+    // Append the textarea and character count span to the container
+    textareaContainer.appendChild(contentTextarea);
+    textareaContainer.appendChild(charCountSpanContent);
+
+    // Append the container to the content group
+    contentGroup.appendChild(textareaContainer);
 
     closeButton.addEventListener('click', function() {
         if (titleInput.value.trim() !== '' || contentTextarea.value.trim() !== '') {
@@ -284,8 +347,8 @@ function showPostForm() {
     // Append the elements to the form
     closeButtonDiv.appendChild(closeButton);
     postForm.appendChild(closeButtonDiv);
-    postForm.appendChild(document.createElement('div').appendChild(titleInput).parentNode);
-    postForm.appendChild(document.createElement('div').appendChild(contentTextarea).parentNode);
+    postForm.appendChild(document.createElement('div').appendChild(inputContainer).parentNode);
+    postForm.appendChild(document.createElement('div').appendChild(contentGroup).parentNode);
     postForm.appendChild(submitButton);
 
     // Append the form to the body
@@ -389,4 +452,74 @@ function submitPost() {
 function showThreads() {
     document.getElementById('threadView').style.display = 'block';
     document.getElementById('writingView').style.display = 'none';
+}
+
+// Function to update the navigation bar based on the login status
+function updateNavbar() {
+  const navbarList = document.getElementById('navbarList');
+  const threadProfPic = document.querySelector('#threadProfPic#threadProfPicImg');
+
+  // Check if the currentUser exists in local storage
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  if (currentUser) {
+    // If the user is logged in, display the profile picture
+    const profileLink = document.createElement('li');
+    profileLink.classList.add('nav-item', 'mx-2', 'd-flex', 'justify-content-center');
+
+    const profileImage = document.createElement('a');
+    profileImage.classList.add('nav-link', 'border-0');
+    profileImage.href = 'akun/profile-page.html';
+    const defaultProfileImg = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
+
+    if (!currentUser.profilePicture || currentUser.profilePicture == 'Profile.png') {
+      // If using the default picture, add the default structure
+      const defaultImgContainer = document.createElement('div');
+      defaultImgContainer.classList.add('rounded-circle', 'border', 'bg-body', 'd-flex', 'justify-content-center', 'p-2');
+      
+      const defaultImg = document.createElement('img');
+      defaultImg.src = defaultProfileImg;
+      defaultImg.width = '20';
+      defaultImg.height = '20';
+
+      defaultImgContainer.appendChild(defaultImg);
+      profileImage.appendChild(defaultImgContainer);
+    } else {
+      const profileImg = document.createElement('img');
+      profileImg.src = currentUser.profilePicture || defaultProfileImg;
+      profileImg.width = '40';
+      profileImg.height = '40';
+      profileImg.classList.add('rounded-circle');
+      profileImage.appendChild(profileImg);
+      document.getElementById('threadProfPicImg').src = profileImg.src;
+      document.getElementById('threadProfPic').classList.remove('p-4');
+    }
+    
+    profileLink.appendChild(profileImage);
+    navbarList.innerHTML = ''; // Clear the existing navbar content
+    navbarList.appendChild(profileLink);
+  } else {
+    // If the user is not logged in, display the login and register buttons
+    const loginButton = document.createElement('li');
+    loginButton.classList.add('nav-item', 'mx-2', 'd-flex', 'justify-content-center');
+
+    const loginLink = document.createElement('a');
+    loginLink.classList.add('nav-link', 'masuk', 'border');
+    loginLink.href = 'akun/login-page.html';
+    loginLink.textContent = 'Masuk';
+
+    loginButton.appendChild(loginLink);
+    navbarList.appendChild(loginButton);
+
+    const registerButton = document.createElement('li');
+    registerButton.classList.add('nav-item', 'mx-2', 'd-flex', 'justify-content-center');
+
+    const registerLink = document.createElement('a');
+    registerLink.classList.add('nav-link', 'daftar');
+    registerLink.href = 'akun/register-page.html';
+    registerLink.textContent = 'Daftar';
+
+    registerButton.appendChild(registerLink);
+    navbarList.appendChild(registerButton);
+  }
 }

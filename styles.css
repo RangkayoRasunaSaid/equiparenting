@@ -4,6 +4,7 @@ body {
     color: #675893;
     background-size: cover;
     background-image: url("background.jpg");
+    overflow-x: hidden;
 }
 
 .nav-link {
@@ -49,11 +50,18 @@ input.form-control.rounded-5.form-control-lg.fw-bold{
 
 textarea{
     border:0.7em solid white !important;
+    resize: none;
 }
 
 .post-button {
     background-color: #a89bc5;
     color: #fff;
+}
+
+.rounded-circle-container {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
 }
 
 .square-image-container,
