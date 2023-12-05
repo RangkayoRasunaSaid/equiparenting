@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Equiparenting</title>
+    <link rel="stylesheet" href="profile-style.css">
+</head>
+<body>
+    <div class='Navbar'>
+        <div class='logo'>
+          <img src='logo.svg' alt='logo'/>
+        </div>
+    </div>
+    <div class="web-header">
+        <header>Akun Terhubung</header>
+        <span>Atur profil akunmu</span>
+    </div>
+    <div class='container'>
+        <div class='form'>
+          <form class='ubah-profile'>
+              <div class="ubah">
+                <div class="profile-picture">
+                    <img src="Profile.png" id="picture"/>
+                    <input type="file" id="file">
+                    <label for="file" id="upload">✎</label>
+                 </div>
+                <div class='username-input'>
+                    <label>Username</label><br />
+                    <input type='text' id="user-name"></input>
+                </div>
+              </div>              
+              <button>Simpan Perubahan</button>
+            </form>
+        
+          <form class='ubah-password'>
+              <div class="input-password">
+                <div class='field-input'>
+                    <input id='password'type='password' placeholder='Password Lama' required></input> 
+                </div>
+                <div class='field-input'>
+                    <input id='passwordNew'type='password' placeholder='Password Baru' required></input>
+                </div>
+                <div class='field-input'>
+                    <input id='confirmPassword' type='password' placeholder='Konfirmasi Password Baru' required></input>
+                </div>    
+              </div>       
+            <button type="submit">Ubah Password</button>
+          </div>
+        </form>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
