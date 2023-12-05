@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 textarea.classList.add('text-center');
                 textarea.style.cursor = 'pointer';
                 textarea.addEventListener('click', function() {
-                    window.location.href = 'akun/login-page.html';
+                    window.location.href = '../akun/login-page.html';
                 });
             } else {
                 // If currentUser exists, set the regular placeholder
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to show the post form and hide the threads
 function showPostForm() {
     if (!localStorage.getItem('currentUser')) {
-        window.location.href = 'akun/login-page.html';
+        window.location.href = '../akun/login-page.html';
 
         // Display an alert at the center top
         const alertDiv = document.createElement('div');
@@ -569,7 +569,7 @@ function updateNavbar() {
 
     const loginLink = document.createElement('a');
     loginLink.classList.add('nav-link', 'masuk', 'border');
-    loginLink.href = 'akun/login-page.html';
+    loginLink.href = '../akun/login-page.html';
     loginLink.textContent = 'Masuk';
 
     loginButton.appendChild(loginLink);
@@ -580,7 +580,7 @@ function updateNavbar() {
 
     const registerLink = document.createElement('a');
     registerLink.classList.add('nav-link', 'daftar');
-    registerLink.href = 'akun/register-page.html';
+    registerLink.href = '../akun/register-page.html';
     registerLink.textContent = 'Daftar';
 
     registerButton.appendChild(registerLink);
