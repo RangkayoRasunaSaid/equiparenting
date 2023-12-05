@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let defaultProfilePicture = 'Profile.png';
 
-      localStorage.setItem('profilePicture', defaultProfilePicture);
-
       if (password !== confirmPassword) {
           alert('Password dan Konfirmasi Password tidak cocok');
           return;
@@ -20,11 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let existingUserData = JSON.parse(localStorage.getItem('userList')) || [];
 
+      let emailAlreadyExists = existingUserData.some(user => user.email === email);
+
+      if (emailAlreadyExists) {
+          alert('E-mail sudah terdaftar');
+          return;
+      }
+
       let userData = {
           username: username,
           email: email,
           password: password,
-          profilePicture: localStorage.getItem('profilePicture') || defaultProfilePicture,
+          profilePicture: defaultProfilePicture,
       };
 
       existingUserData.push(userData);
