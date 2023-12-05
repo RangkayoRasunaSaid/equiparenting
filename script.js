@@ -24,17 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
             komentar.classList.add('fw-bolder', 'mt-5');
             komentar.textContent = 'Komentar';
             threadDiv.appendChild(komentar);
+            const threadComment = document.createElement('div');
   
             if (comments.length === 0) {
               const noCommentMessage = document.createElement('p');
               noCommentMessage.classList.add('mt-4', 'text-muted');
               noCommentMessage.textContent = 'Belum ada komentar. Jadilah yang pertama!';
-              threadDiv.appendChild(noCommentMessage);
+              threadComment.appendChild(noCommentMessage);
             }
             comments.forEach(comment => {
               // Create HTML elements for comments
               const commentDiv = createCommentElement(comment);
-              threadDiv.appendChild(commentDiv);
+              threadComment.appendChild(commentDiv);
             });
   
             // Add a textarea with character limit
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Add a "Post" button
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             const postButton = document.createElement('button');
             postButton.classList.add('btn', 'mt-3', 'ms-2', 'post-button'); // Added margin to separate the "Post" button
             postButton.textContent = 'Post';
@@ -106,15 +108,28 @@ document.addEventListener('DOMContentLoaded', function() {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  username: 'YourUsername', // Replace with the actual username
-                  avatar: 'https://your-avatar-url.com', // Replace with the actual avatar URL
+                  username: currentUser.username.toLowerCase().split(" ").join(""),
+                  avatar: currentUser.profilePicture,
                   content: commentContent,
                 }),
               })
                 .then(response => response.json())
                 .then(data => {
                   console.log('Comment posted successfully:', data);
-                  // You can update the UI as needed (e.g., refresh comments)
+                  textarea.value = '';
+                  postButton.style.display = 'none';
+                  charactersLeftSpan.style.display = 'none';
+                  const commentDiv = createCommentElement(data);
+
+                  // Check if this is the first comment of the thread
+                  let hasDirectParagraphChild = Array.from(threadComment.children).some(function(child) {
+                    return child.tagName.toLowerCase() === 'p';
+                  });
+
+                  if (hasDirectParagraphChild) {
+                    threadComment.innerHTML = '';
+                  }
+                  threadComment.appendChild(commentDiv);
                 })
                 .catch(error => console.error('Error posting comment:', error));
             });
@@ -125,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             commentContainer.appendChild(charactersLeftSpan);
             commentContainer.appendChild(postButton);
             
+            threadDiv.appendChild(threadComment);  
             threadDiv.appendChild(textarea);  
             threadDiv.appendChild(commentContainer);            
           })
@@ -186,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     const username = document.createElement('p');
     username.classList.add('fw-medium', 'm-0');
-    username.textContent = thread.username;
+    username.textContent = '@' + thread.username.toLowerCase().split(" ").join("");
     userInfoDiv.appendChild(username);
   
     const contentP = document.createElement('p');
@@ -211,15 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
     avatarContainer.classList.add('me-3', 'comment-image-container');
   
     // Check if comment.avatar is empty
-    if (comment.avatar) {
-      const avatarImg = document.createElement('img');
-      avatarImg.src = comment.avatar;
-      avatarImg.classList.add('square-image');
-      avatarContainer.appendChild(avatarImg);
-    } else {
+    if (!comment.avatar || comment.avatar == 'Profile.png') {
       // Create default avatar structure
       const defaultAvatar = document.createElement('div');
-      defaultAvatar.classList.add('rounded-circle', 'bg-body', 'd-flex', 'justify-content-center', 'p-1');
+      defaultAvatar.classList.add('rounded-circle', 'bg-body', 'd-flex', 'justify-content-center', 'p-2');
   
       const defaultAvatarImg = document.createElement('img');
       defaultAvatarImg.src = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
@@ -228,11 +239,16 @@ document.addEventListener('DOMContentLoaded', function() {
   
       defaultAvatar.appendChild(defaultAvatarImg);
       avatarContainer.appendChild(defaultAvatar);
+    } else {
+      const avatarImg = document.createElement('img');
+      avatarImg.src = comment.avatar;
+      avatarImg.classList.add('square-image');
+      avatarContainer.appendChild(avatarImg);
     }
   
     const username = document.createElement('h6');
     username.classList.add('fw-bolder', 'm-0');
-    username.textContent = comment.username;
+    username.textContent = '@' + comment.username.toLowerCase().split(" ").join("");
   
     const commentContent = document.createElement('p');
     commentContent.classList.add('ms-5', 'ps-1');
