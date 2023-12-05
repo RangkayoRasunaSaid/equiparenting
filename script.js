@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrlThreads = 'https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads';
-    const apiUrlComments = 'https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads/';
+    const apiUrlThreads = 'https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads/';
     document.getElementById('writingView').style.display = 'none';
 
     // Call the function to update the navbar on page load
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const threadDiv = createThreadElement(thread);
   
         // Fetch comments for each thread
-        fetch(apiUrlComments + thread.id + '/comments')
+        fetch(apiUrlThreads + thread.id + '/comments')
           .then(response => response.json())
           .then(comments => {
             // Process comments
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
               const commentContent = textarea.value.trim();
             
               // Make a POST request to the API
-              fetch(apiUrlComments + thread.id + '/comments', {
+              fetch(apiUrlThreads + thread.id + '/comments', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
