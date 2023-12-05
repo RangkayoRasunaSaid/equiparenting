@@ -1,100 +1,98 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let profileForm = document.querySelector('.ubah-profile');
-  
-    let profilePicture = document.getElementById('picture');
-    let usernameInput = document.querySelector('.username-input input');
-    let fileInput = document.getElementById('file');
-  
-    let currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
-    let userList = JSON.parse(localStorage.getItem('userList')) || [];
-  
-    if (currentUser) {
-      profilePicture.setAttribute('src', currentUser.profilePicture);
-      usernameInput.value = currentUser.username;
+  let profileForm = document.querySelector('.ubah-profile');
+
+  let profilePicture = document.getElementById('profile-picture');
+  let usernameInput = document.querySelector('.username-input input');
+  let fileInput = document.getElementById('file');
+
+  let currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+  let userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+  if (currentUser) {
+    profilePicture.setAttribute('src', localStorage.getItem('profilePicture') || 'Profile.png');
+    usernameInput.value = currentUser.username;
+  }
+
+  fileInput.addEventListener('change', function () {
+    const chosenFile = this.files[0];
+
+    if (chosenFile) {
+      const reader = new FileReader();
+
+      reader.addEventListener('load', function () {
+        profilePicture.setAttribute('src', reader.result);
+        localStorage.setItem('profilePicture', reader.result);
+      });
+
+      reader.readAsDataURL(chosenFile);
     }
-  
-    fileInput.addEventListener('change', function () {
-      const chosenFile = this.files[0];
-  
-      if (chosenFile) {
-        const reader = new FileReader();
-  
-        reader.addEventListener('load', function () {
-          profilePicture.setAttribute('src', reader.result);
-        });
-  
-        reader.readAsDataURL(chosenFile);
-      }
-    });
-  
-    profileForm.addEventListener('submit', function (event) {
-      event.preventDefault(); 
-  
-      let newProfilePicture = profilePicture.getAttribute('src');
-      let newUsername = usernameInput.value;
-  
-      currentUser.profilePicture = newProfilePicture;
-      currentUser.username = newUsername;
-  
-      let userIndex = userList.findIndex(user => user.email === currentUser.email);
-  
-      if (userIndex !== -1) {
-        userList[userIndex] = currentUser;
-        localStorage.setItem('userList', JSON.stringify(userList));
-      }
-  
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-  
-      alert('Perubahan berhasil disimpan');
-    });
-  
-    
-    
-    
-    // password's part
-    let passwordForm = document.querySelector('.ubah-password');
+  });
 
-    let passwordInput = document.getElementById('password');
-    let newPasswordInput = document.getElementById('passwordNew');
-    let confirmPasswordInput = document.getElementById('confirmPassword');
+  profileForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    passwordForm.addEventListener('submit', function (event) {
-        event.preventDefault(); 
+    let newProfilePicture = profilePicture.getAttribute('src');
+    let newUsername = usernameInput.value;
 
-        let currentPassword = passwordInput.value;
-        let newPassword = newPasswordInput.value;
-        let confirmPassword = confirmPasswordInput.value;
+    currentUser.profilePicture = newProfilePicture;
+    currentUser.username = newUsername;
 
-        if (currentPassword !== currentUser.password) {
-            alert('Password salah');
-            return;
-        }
+    let userIndex = userList.findIndex(user => user.email === currentUser.email);
 
-        if (currentPassword === newPassword) {
-            alert('Password baru harus berbeda dengan Password lama');
-            return;
-        }
+    if (userIndex !== -1) {
+      userList[userIndex] = currentUser;
+      localStorage.setItem('userList', JSON.stringify(userList));
+    }
 
-        if (newPassword !== confirmPassword) {
-            alert('Password baru harus sama dengan Konfirmasi Password');
-            return;
-        }
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
-        currentUser.password = newPassword;
+    alert('Perubahan berhasil disimpan');
+  });
 
-        let userIndex = userList.findIndex(user => user.email === currentUser.email);
+//Password's Part
+  let passwordForm = document.querySelector('.ubah-password');
 
-        if (userIndex !== -1) {
-            userList[userIndex].password = newPassword;
-            localStorage.setItem('userList', JSON.stringify(userList));
-        }
+  let passwordInput = document.getElementById('password');
+  let newPasswordInput = document.getElementById('passwordNew');
+  let confirmPasswordInput = document.getElementById('confirmPassword');
 
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  passwordForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-        alert('Perubahan password berhasil disimpan');
+    let currentPassword = passwordInput.value;
+    let newPassword = newPasswordInput.value;
+    let confirmPassword = confirmPasswordInput.value;
 
-        passwordInput.value = '';
-        newPasswordInput.value = '';
-        confirmPasswordInput.value = '';
-    });
+    if (currentPassword !== currentUser.password) {
+      alert('Password salah');
+      return;
+    }
+
+    if (currentPassword === newPassword) {
+      alert('Password baru harus berbeda dengan Password lama');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      alert('Password baru harus sama dengan Konfirmasi Password');
+      return;
+    }
+
+    currentUser.password = newPassword;
+
+    let userIndex = userList.findIndex(user => user.email === currentUser.email);
+
+    if (userIndex !== -1) {
+      userList[userIndex].password = newPassword;
+      localStorage.setItem('userList', JSON.stringify(userList));
+    }
+
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+    alert('Perubahan password berhasil disimpan');
+
+    passwordInput.value = '';
+    newPasswordInput.value = '';
+    confirmPasswordInput.value = '';
+  });
 });
