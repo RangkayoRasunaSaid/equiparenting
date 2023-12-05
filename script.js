@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(apiUrlThreads)
     .then(response => response.json())
     .then(threads => {
+      // Reverse the order of threads
+      threads.reverse();
+
       // Process threads
       threads.forEach(thread => {
         // Create HTML elements for threads
@@ -173,12 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     avatarContainer.classList.add('me-3', 'square-image-container', 'flex-shrink-0');
   
     // Check if thread.avatar is empty
-    if (thread.avatar) {
-      const avatarImg = document.createElement('img');
-      avatarImg.src = thread.avatar;
-      avatarImg.classList.add('square-image');
-      avatarContainer.appendChild(avatarImg);
-    } else {
+    if (!thread.avatar || thread.avatar == 'Profile.png') {
       // Create default avatar structure
       const defaultAvatar = document.createElement('div');
       defaultAvatar.classList.add('rounded-circle', 'bg-body', 'd-flex', 'justify-content-center', 'p-4');
@@ -190,6 +188,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
       defaultAvatar.appendChild(defaultAvatarImg);
       avatarContainer.appendChild(defaultAvatar);
+    } else {
+      const avatarImg = document.createElement('img');
+      avatarImg.src = thread.avatar;
+      avatarImg.classList.add('square-image');
+      avatarContainer.appendChild(avatarImg);
     }
   
     const userInfoDiv = document.createElement('div');
@@ -441,6 +444,7 @@ function showPostForm() {
 function submitPost() {
     const postTitle = document.getElementById('postTitle').value;
     const postContent = document.getElementById('postContent').value;
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     // Make a POST request to the API
     fetch('https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads', {
@@ -451,7 +455,8 @@ function submitPost() {
     body: JSON.stringify({
         title: postTitle,
         content: postContent,
-        // Additional fields if needed
+        username: currentUser.username.toLowerCase().split(" ").join(""),
+        avatar: currentUser.profilePicture,
     }),
     })
     .then(response => response.json())
@@ -459,8 +464,7 @@ function submitPost() {
         console.log('Post submitted successfully:', data);
         // Remove the post form
         document.querySelector('.post-form').remove();
-        // Show the threads again
-        document.getElementById('app').style.display = 'block';
+        location.reload();
     })
     .catch(error => console.error('Error submitting post:', error));
 }
