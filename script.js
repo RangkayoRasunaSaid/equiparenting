@@ -270,6 +270,20 @@ document.addEventListener('DOMContentLoaded', function() {
 function showPostForm() {
     if (!localStorage.getItem('currentUser')) {
         window.location.href = 'akun/login-page.html';
+
+        // Display an alert at the center top
+        const alertDiv = document.createElement('div');
+        alertDiv.classList.add('alert', 'alert-dark', 'position-fixed', 'top-0', 'start-50', 'translate-middle-x');
+        alertDiv.setAttribute('role', 'alert');
+        alertDiv.innerHTML = '<i class="fas fa-info-circle"></i>Please log in to access this feature';
+
+        // Append the alert to the body
+        document.body.appendChild(alertDiv);
+
+        // Set a timeout to remove the alert after a few seconds (e.g., 3 seconds)
+        setTimeout(function () {
+            document.body.removeChild(alertDiv);
+        }, 3000);
     }
     // Hide threads
     document.getElementById('threadView').style.display = 'none';
@@ -486,16 +500,23 @@ function updateNavbar() {
     const profileLink = document.createElement('li');
     profileLink.classList.add('nav-item', 'mx-2', 'd-flex', 'justify-content-center');
 
-    const profileImage = document.createElement('a');
+    const dropdownContainer = document.createElement('div');
+    dropdownContainer.classList.add('dropdown');
+
+    // Create the profile image link
+    const profileImage = document.createElement('button');
     profileImage.classList.add('nav-link', 'border-0');
-    profileImage.href = 'akun/profile-page.html';
+    profileImage.type = 'button';
+    profileImage.setAttribute('data-bs-toggle', 'dropdown');
+    profileImage.setAttribute('aria-expanded', 'false');
+
     const defaultProfileImg = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
 
-    if (!currentUser.profilePicture || currentUser.profilePicture == 'Profile.png') {
+    if (!currentUser.profilePicture || currentUser.profilePicture === 'Profile.png') {
       // If using the default picture, add the default structure
       const defaultImgContainer = document.createElement('div');
       defaultImgContainer.classList.add('rounded-circle', 'border', 'bg-body', 'd-flex', 'justify-content-center', 'p-2');
-      
+
       const defaultImg = document.createElement('img');
       defaultImg.src = defaultProfileImg;
       defaultImg.width = '20';
@@ -510,13 +531,37 @@ function updateNavbar() {
       profileImg.height = '40';
       profileImg.classList.add('rounded-circle');
       profileImage.appendChild(profileImg);
-      document.getElementById('threadProfPicImg').src = profileImg.src;
-      document.getElementById('threadProfPic').classList.remove('p-4');
     }
-    
-    profileLink.appendChild(profileImage);
+
+    // Create the dropdown content
+    const dropdownMenu = document.createElement('div');
+    dropdownMenu.classList.add('dropdown-menu', 'dropdown-menu-end');
+
+    const yourProfileLink = document.createElement('a');
+    yourProfileLink.classList.add('dropdown-item');
+    yourProfileLink.href = 'akun/profile-page.html';
+    yourProfileLink.textContent = 'Your Profile';
+
+    const logoutLink = document.createElement('div');
+    logoutLink.classList.add('dropdown-item');
+    logoutLink.style.cursor = 'pointer';
+    logoutLink.addEventListener('click', function () {
+      // Handle logout: Remove the 'currentUser' from localStorage
+      localStorage.removeItem('currentUser');
+      location.reload();
+    });
+    logoutLink.textContent = 'Logout';
+
+    dropdownMenu.appendChild(yourProfileLink);
+    dropdownMenu.appendChild(logoutLink);
+
+    // Append the elements to the DOM
+    dropdownContainer.appendChild(profileImage);
+    dropdownContainer.appendChild(dropdownMenu);
+    profileLink.appendChild(dropdownContainer);
     navbarList.innerHTML = ''; // Clear the existing navbar content
     navbarList.appendChild(profileLink);
+
   } else {
     // If the user is not logged in, display the login and register buttons
     const loginButton = document.createElement('li');

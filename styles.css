@@ -97,4 +97,7 @@ textarea{
   a.border {
     border-color: white !important;
   }
+  footer div img {
+    margin-top: 45px;
+  }
 }
