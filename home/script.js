@@ -1,3 +1,15 @@
+// Fungsi untuk menangani perubahan ukuran layar
+function handleScreenSizeChange() {
+  const isLargeScreen = window.matchMedia("(min-width: 930px)").matches;
+  const isMediumScreen = window.matchMedia("(min-width: 700px) and (max-width: 929px)").matches;
+  
+  if (isLargeScreen) {
+    initializeCarousel($(".carousel-item").width() * 5);
+  } else if (isMediumScreen) {
+    initializeCarousel($(".carousel-item").width() * 3);
+  }
+}
+
 // Mendapatkan carousel yang digunakan
 var multipleCardCarousel = document.querySelector("#carouselExampleControls");
 
@@ -70,26 +82,22 @@ async function isiCarouselDenganData() {
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">${item.content}</p>
-            <a href="${item.link}" class="btn btn-primary">Baca Selengkapnya</a>
+            <a href="${item.id}" class="btn btn-primary">Baca Selengkapnya</a>
           </div>
         </div>
       `;
-
       carouselInner.appendChild(card);
     });
-
-    // Setelah memperbarui isi carousel, inisialisasi kembali carousel Bootstrap
-    if (window.matchMedia("(min-width: 930px)").matches) {
-      initializeCarousel($(".carousel-item").width() * 5);
-    } else if (window.matchMedia("(min-width: 700px) and (max-width: 929px)").matches) {
-      initializeCarousel($(".carousel-item").width() * 3);
-    }
   } catch (error) {
     console.error('Gagal mengisi carousel:', error);
   }
 }
 
-// Ketika DOM telah dimuat, isi carousel dengan data
+// Ketika DOM telah dimuat, isi carousel dengan data dan tambahkan event listener untuk resize
 document.addEventListener('DOMContentLoaded', async () => {
   await isiCarouselDenganData();
+  handleScreenSizeChange(); // Panggil fungsi ini saat DOM telah dimuat untuk menyesuaikan tampilan awal
+  
+  // Tambahkan event listener untuk resize
+  window.addEventListener('resize', handleScreenSizeChange);
 });
