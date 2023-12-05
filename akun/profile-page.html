@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Equiparenting</title>
     <link rel="stylesheet" href="profile-style.css">
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  
+          if (currentUser && currentUser.email) {
+              document.querySelector('.container').style.display = 'block';
+          } else {
+              window.location.href = 'login-page.html';
+          }
+      });
+    </script>  
 </head>
 <body>
     <div class='Navbar'>
@@ -21,10 +32,10 @@
           <form class='ubah-profile'>
               <div class="ubah">
                 <div class="profile-picture">
-                    <img src="Profile.png" id="picture"/>
-                    <input type="file" id="file">
-                    <label for="file" id="upload">✎</label>
-                 </div>
+                  <img src="Profile.png" id="picture"/>
+                  <input type="file" id="file">
+                  <label for="file" id="upload">✎</label>
+                </div>
                 <div class='username-input'>
                     <label>Username</label><br />
                     <input type='text' id="user-name"></input>
