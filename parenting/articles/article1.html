@@ -9,14 +9,15 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="/Parenting/style.css">
+  <link rel="stylesheet" href="../../ceritaku/styles.css">
 </head>
 
 <body>
-  <!-- Header navbar -->
+  <!-- Header navbar
   <header class="header">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container d-flex">
-        <a class="navbar-brand" href="../../home/index.html"> <img src="/equiparenting/parenting/image/logo.svg" width="140"> </a>
+        <a class="navbar-brand" href="../../home/index.html"> <img src="../../akun/logo.svg" width="140"> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -51,7 +52,37 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
+  <nav class="navbar navbar-expand-lg bg-body nav-pills">
+    <div class="container container-fluid fw-medium">
+      <a class="navbar-brand" href="../../home/index.html">
+        <img src="../../akun/logo.svg" alt="EquiParenting">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse float-center" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto me-auto">
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link" href="../../home/index.html">Beranda</a></li>
+          <li class="nav-item mx-4 d-flex justify-content-center dropdown">
+            <a class="nav-link dropdown-toggle ceritaku fw-bolder" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Parenting
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../index.html">Tips Parenting</a></li>
+              <li><a class="dropdown-item" href="#">Tips Permainan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link" href="#">Video</a></li>
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link" href="../../ceritaku/index.html" aria-current="page">Ceritaku</a></li>
+        </ul>
+        <ul class="navbar-nav ms-auto me-auto" id="navbarList">
+          <!-- The login and register buttons will be dynamically added here -->
+        </ul>
+              
+      </div>
+    </div>
+  </nav>
   </header>
 
 
@@ -59,14 +90,14 @@
   <div class="article" id="article">
     <div class="article-container mt-3">
       <div class="text-content">
-        <a href="../parenting/index.html" id="backLink" class="text-decoration-none text-custom"><i
+        <a href="../index.html" id="backLink" class="text-decoration-none text-custom"><i
             class="fas fa-arrow-left fs-4 mt-2"></i></a>
         <div class="heading">
           <p class="h3 mb-4 mt-4">Tips Menerapkan Gender Neutral Parenting</p>
         </div>
 
         <div class="image">
-          <a href="#"><img src="/equiparenting/parenting/image/image1.jpg" class="img-fluid rounded-start mb-4"></a>
+          <a href="#"><img src="../image/image1.jpg" class="img-fluid rounded-start mb-4"></a>
         </div>
 
         <p>Mungkin Moms & Paps sering mendengar ajaran masa kecil seperti pemakaian warna biru untuk laki-laki dan merah
@@ -174,7 +205,7 @@
     </div>
 
     <div class="col-md-4 d-flex justify-content-end align-items-start mt-5">
-      <img src="/equiparenting/parenting/image/logo.svg" alt="Logo" width="300px">
+      <img src="../../akun/logo.svg" alt="Logo" width="300px">
     </div>
   </footer>
 
@@ -190,6 +221,7 @@
     const queryString = window.location.search;
     console.log(queryString);
   </script>
+  <script src="../../ceritaku/script.js"></script>
 
 </body>
 

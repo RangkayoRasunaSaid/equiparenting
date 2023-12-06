@@ -544,7 +544,7 @@ function updateNavbar() {
 
     const yourProfileLink = document.createElement('a');
     yourProfileLink.classList.add('dropdown-item');
-    yourProfileLink.href = 'akun/profile-page.html';
+    yourProfileLink.href = '../akun/profile-page.html';
     yourProfileLink.textContent = 'Your Profile';
 
     const logoutLink = document.createElement('div');
