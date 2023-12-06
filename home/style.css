@@ -1,11 +1,9 @@
 /* Global CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&family=Happy+Monkey&family=Karla:wght@400;500&family=Lato:wght@400;700;900&family=Montserrat:wght@300;400;500;600&family=Nunito:wght@400;500;700;900&family=Open+Sans:wght@400;500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700;900&family=Source+Sans+3:wght@300;400;500&display=swap');
-
 body{
   background-image: url(https://s3-alpha-sig.figma.com/img/376a/56f3/a93ac92f2056f6c2c2468a55eaae0ee4?Expires=1702252800&Signature=kJPz~tjdlb~thNJrsN3qa~ol~TRsDID6hGGMT3dHZ6soEXe4EW3ShQz4mcMoZefYHupcuaVrs-6HKMm8ej9YjZ4NtQmNKfTnxxyRLNUzGgr3aENUAQA~yd5KGODILKLpvm-RphzKnr5bDib~I4253H7~kinBZMMGPK6yoU7JnrUM4-fxssTWSBWsieQjdPpGWs2SOWgQWUT1RfsGFcJyNDEM-wvyZxHgp807h4wr8kpOijIxLZy8tF-XO2tAzNR2jJuPsveFjPu2uR0SJGKXMtma2eaO9ehLmqCuClK-EtQl7guLkFOK~bybfPI6ayajDjV1GsbaEXKiEWKO2nsxTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-repeat: no-repeat;
-  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .featureTitle{
   margin-top: 0;
