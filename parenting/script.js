@@ -25,7 +25,7 @@ const getArticles = async () => {
                   <div class="card-body">
                     <h5 class="card-title">${article.title}</h5>
                     <p class="card-text mt-3">${article.description}</p>
-                    <a href="/Parenting/articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
+                    <a href="/parenting/articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const displayArticles = (category = null) => {
                     <div class="card-body">
                       <h5 class="card-title">${article.title}</h5>
                       <p class="card-text mt-3">${article.description}</p>
-                      <a href="Parenting/articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
+                      <a href="parenting/articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
                     </div>
                   </div>
                 </div>
