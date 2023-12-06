@@ -1,0 +1,44 @@
+{
+  "articles": [
+    {
+      "tips": "Tips Parenting",
+      "age": "0-2 tahun",
+      "category": "Pola Asuh",
+      "title": "Tips Menerapkan Gender Neutral Parenting",
+      "description": "Moms & Paps mungkin kerap mendengar beberapa kalimat ajaran masa kecil seperti memakai warna biru untuk laki-laki, dan merah muda untuk perempuan. Atau, mainan mobil-mobilan diperuntukkan bagi anak lelaki, sementara para perempuan sebaiknya...",
+      "image": "image1.svg",
+      "content": "<div><p>Moms & Paps mungkin kerap mendengar beberapa kalimat ajaran masa kecil seperti memakai warna biru untuk laki-laki, dan merah muda untuk perempuan. Atau, mainan mobil-mobilan diperuntukkan bagi anak lelaki, sementara para perempuan sebaiknya bermain dengan boneka. Namun, semakin lama, beberapa orang tua memilih untuk membesarkan anak mereka tanpa memerhatikan gender, atau istilahnya gender neutral.</p><p>Pola asuh yang netral gender yaitu ketika orang tua membesarkan anak mereka tanpa memaksakan norma-norma gender yang sudah ada sebelumnya. Gender neutral parenting membuat anak bisa mengekspresikan diri mereka dengan lebih leluasa dan memilih hal-hal apa yang mereka suka.</p><p>Dr. Stella Mavroveli, psikolog di Imperial College sekaligus ibu dari dua orang anak laki-laki juga menerapkan pola asuh netral gender. Kita harus menerima dan memahami bahwa tedapat perbedaan psikis dan fisik pada laki-laki dan perempuan. Sebagai orang tua, kita harus membiarkan anak kita tumbuh dan berkembang di lingkungan yang terlalu mengkotak-kotakkan secara ekstrem. Bila seperti itu, anak jadi tidak bisa memiliki pandangan dan pilihan untuk dirinya sendiri. Jelasnya, dikutip dari Telegraph UK.</p><p>Moms & Paps perlu memahami, ada beberapa tips jika memutuskan ingin menerapkan pola asuh yang netral gender. Agar tidak kelewatan, berikut tips membesarkan anak dengan cara gender neutral parenting.</p><h2>1. Kurangi Pentingnya Stigma Terhadap Gender</h2><p>Jangan gunakan istilah netral gender, tetapi bantu anak-anak bebas dari batasan gender apa pun. Moms & Paps dapat melakukan ini dengan menghapus label pada gender dari bahasa. Misalnya seperti mengganti Kamu benar-benar gadis yang pintar! dengan Kamu anak yang pintar!. Anak jadi akan memahami bahwa ia berharga sebagai manusia, tidak hanya sebagai seorang perempuan.</p><h2>2. Hindari Tema Merah Muda dan Biru</h2><p>Berhati-hatilah dalam mengaitkan stereotip gender dan penekanan untuk menunjukkan perbedaan antara anak laki-laki dan perempuan. Jangan pernah mengaitkan pink dengan seorang anak perempuan, dan biru dengan seorang anak laki-laki. Karena ini dapat mengubah pemikiran dan perilaku mereka untuk beradaptasi dengan norma sejak dini.</p><p>Moms & Paps bisa mendorong mereka untuk memakai warna yang netral gender. Biarkan anak dengan sendirinya menentukan pilihan mereka. Bila pada akhirnya anak perempuan Moms & Paps suka warna pink, itu memang atas dasar pilihannya sendiri, bukan karena Moms & Paps yang memaksakan warna tersebut padanya sedari kecil.</p><h2>3. Dorong Anak Perempuan dan Laki-laki Bermain Bersama</h2><p>Sangat penting bagi anak-anak untuk merasa nyaman bermain dengan lawan jenis karena ini akan membuat mereka siap di masa depan. Seperti membangun hubungan di masa depan di tempat kerja, di rumah, dan di sekolah. Moms & Paps dapat mengajak anak terlibat ke dalam kegiatan campuran gender, seperti olahraga dan kelompok bermain.</p></div>",
+      "id": "1"
+    },
+    {
+      "tips": "Tips Parenting",
+      "age": "3 tahun",
+      "category": "Emosi & Self Awarness",
+      "title": "Emosi dan Kesetaraan Gender: Memahami Diri dan Anak dalam Perjalanan Parenting",
+      "description": "Parenting modern bukan hanya tentang memberikan panduan dan kebijakan kepada anak-anak, tetapi juga memahami dan merangkul peran kesetaraan gender dalam membentuk emosi mereka...",
+      "image": "image2.svg",
+      "content": "content NaN",
+      "id": "2"
+    },
+    {
+      "tips": "Tips Parenting",
+      "age": "4 tahun",
+      "category": "Perilaku",
+      "title": "10 Tips Parenting untuk Bentuk Karakter Positif Anak",
+      "description": "Salah satu tanggung jawab utama Moms & Paps adalah membantu membentuk karakter positif pada anak-anak Moms & Paps. Karakter yang kuat dan positif akan membantu mereka menghadapi tantangan hidup dan menjadi individu...",
+      "image": "image3.svg",
+      "content": "content NaN",
+      "id": "3"
+    },
+    {
+      "tips": "Tips Parenting",
+      "age": "4 tahun",
+      "category": "Sosial",
+      "title": "Mengasah Keterampilan Sosial Anak: Kesetaraan Gender dalam Pola Asuh",
+      "description": "Pentingnya mengembangkan keterampilan sosial anak sebagai fondasi kesetaraan gender dalam pola asuh tidak dapat diabaikan. Berikut adalah beberapa tips parenting yang dapat membantu menciptakan lingkungan yang mendukung...",
+      "image": "image4.svg",
+      "content": "content NaN",
+      "id": "3"
+    }
+  ]
+}

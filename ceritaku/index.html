@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ceritaku - EquiParenting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body nav-pills">
+    <div class="container container-fluid fw-medium">
+      <a class="navbar-brand" href="../home/index.html">
+        <img src="logo.svg" alt="EquiParenting">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse float-center" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto me-auto">
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link" href="../home/index.html">Beranda</a></li>
+          <li class="nav-item mx-4 d-flex justify-content-center dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Parenting
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../index.html">Tips Parenting</a></li>
+              <li><a class="dropdown-item" href="#">Tips Permainan</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link" href="#">Video</a></li>
+          <li class="nav-item mx-4 d-flex justify-content-center"><a class="nav-link ceritaku fw-bolder" href="index.html" aria-current="page">Ceritaku</a></li>
+        </ul>
+        <ul class="navbar-nav ms-auto me-auto" id="navbarList">
+          <!-- The login and register buttons will be dynamically added here -->
+        </ul>
+              
+      </div>
+    </div>
+  </nav>
+  <main class="container mt-3 p-5">
+    <h2 class="fw-bold d-flex justify-content-center pt-2">Bagikan cerita parentingmu disini!</h2>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-md-9">
+        <div id="threadView">
+          <div class="d-flex align-items-center ceritaku mt-5 p-3 rounded-5">
+            <div id="threadProfPic" class="flex-shrink-0 rounded-circle bg-body d-flex justify-content-center p-4 me-3">
+              <img id="threadProfPicImg" src="https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png" width="20px" height="20px">
+            </div>
+            <div onclick="showPostForm()" class="px-3 flex-grow-1 form-control rounded-5 d-flex align-items-center form-control-lg">
+              Tulis cerita kamu disini
+            </div>
+          </div>
+
+          <div id="app">
+            <!-- Data will be displayed here -->
+          </div>
+        </div>
+        <div id="writingView" class="ceritaku mt-5 p-4 rounded-5"></div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </main>
+  <footer class="daftar px-5 pb-4 row">
+    <div class="col-md-3 mt-5">
+      <h5 class="fw-bolder">Parenting</h5>
+      <p class="mb-2">Pola Asuh</p>
+      <p class="mb-2">Emosi & Self Awareness</p>
+      <p class="mb-2">Perilaku</p>
+      <p>Sosial</p>
+    </div>
+    <div class="col-md-3 mt-5">
+      <h5 class="fw-bolder">Kontak</h5>
+      <p class="mb-2"><i class="fas fa-phone-alt"></i> <a href="tel:+6285188881200" class="text-white text-decoration-none">(+62) 851-8888-1200</a></p>
+      <p class="mb-2"><i class="fas fa-envelope"></i> <a href="mailto:equi.parenting@gmail.com" class="text-white text-decoration-none">equi.parenting@gmail.com</a></p>
+      <p class="mb-2"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/equi_parenting/" class="text-white text-decoration-none">@equi_parenting</a></p>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <a href="../home/index.html"><img src="logo.svg" alt="Logo" width="300px"></a>
+    </div>
+  </footer>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
