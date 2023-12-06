@@ -34,11 +34,11 @@ body {
 }
 
 main {
-  margin: 5rem 0;
+  /* margin: 5rem 0;  */
   padding: 1.5rem 7.5rem;
 }
 
-.header {
+/* .header {
   padding: 1px 8%;
   position: fixed;
   top: 0;
@@ -50,9 +50,49 @@ main {
   align-items: center;
   justify-content: space-between;
   background-image: url(image/background.jpg);
+} */
+
+.filledColorButtonLight{
+  border-radius: .5rem;
+  height: 5.5vh;
+  text-align: center;
+  text-decoration: none;
+}
+.filledColorButtonLight:hover{
+  background-color:#E8DEF7; 
+  color: #392c60 !important;
+  font-weight: 900;
+}
+.borderedColorButtonDark, .filledColorButtonDark{
+    border-radius: .5rem;
+    padding: 5px 20px;
+    height: 5.5vh;
+    width: 5.5vw;
+    text-align: center;
+    text-decoration: none;
+}
+.borderedColorButtonDark {
+    border: 3px solid #675893; 
+    color: #675893 !important;
+}
+.filledColorButtonDark{
+  background-color:#675893; 
+  color: #ffffff !important;
+  border: 3px solid #675893; 
+}
+.borderedColorButtonDark:hover{
+  background-color:#7f508f; 
+  color: #ffffff !important;
+  border: 3px solid #7f508f;  
+}
+.filledColorButtonDark:hover{
+  border: 3px solid #7f508f; 
+  background-color: #7f508f; 
+  color: #ffffff!important;
 }
 
-.navbar-nav {
+
+/* .navbar-nav {
   position: fixed;
   display: flex;
   align-items: center;
@@ -97,7 +137,7 @@ main {
   background: #7f508f;
   border: 2px solid #7f508f;
   color: #fff;
-}
+} */
 
 /* Main Section for article */
 .col {
@@ -283,7 +323,7 @@ footer p {
   .header {
     position: fixed;
   }
-
+  
   .navbar .container {
     padding: 0;
   }
@@ -296,7 +336,7 @@ footer p {
   .first {
     flex-direction: column; 
     align-items: center; 
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
   } 
 
   h1 {
@@ -424,7 +464,7 @@ footer p {
   h1 {
     flex-direction: row; 
     align-items: center; 
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     font-size: 24px;
   }
 
@@ -484,3 +524,76 @@ footer p {
     margin-bottom: 0;
   }
 }
+
+
+@media screen and (max-width: 992px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 6rem; /* Atur tinggi navbar jika diperlukan */
+    right: 1rem;
+    z-index: 1000;
+    width: 50%;
+    height: 60vh;
+    background-color: #675893; /* Atur warna latar belakang navbar */
+    padding: 1rem;
+  }
+  .navbar-light .navbar-nav .nav-link{
+    color: #ffffff;
+  }
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(1, 242, 242);
+  }
+  .dropdown-menu{
+    background-color: aqua !important;
+    padding-top: 0;
+    padding-bottom:  0;
+  }
+ }
+
+
+ @media screen and (min-width: 1500px){
+  .filledColorButtonLight{
+    border-radius: .5rem;
+    padding: 5px 20px;
+    height: 5.5vh;
+    width: 12.5vw;
+    text-align: center;
+    text-decoration: none;
+  }
+  .filledColorButtonLight:hover{
+    background-color:#E8DEF7; 
+    color: #392c60 !important;
+    border: 3px solid #675893;; 
+    font-weight: 900;
+  }
+  .borderedColorButtonDark, .filledColorButtonDark{
+      border-radius: .5rem;
+      padding: 5px 20px;
+      height: 5.5vh;
+      width: 5.5vw;
+      text-align: center;
+      text-decoration: none;
+  }
+  .borderedColorButtonDark {
+      border: 3px solid #675893; 
+      color: #675893 !important;
+  }
+  .filledColorButtonDark{
+    background-color:#675893; 
+    color: #ffffff !important;
+    border: 3px solid #675893; 
+  }
+  .borderedColorButtonDark:hover{
+    background-color:#392c60; 
+    color: #ffffff !important;
+    border: 3px solid #675893; 
+  }
+  .filledColorButtonDark:hover{
+    border: 3px solid #675893; 
+    background-color: #392c60; 
+    color: #ffffff!important;
+  }
+  .nav-link{
+    display:inline !important;
+  }
+ }
