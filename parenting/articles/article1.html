@@ -14,48 +14,46 @@
 <body>
   <!-- Header navbar -->
   <header class="header">
-    <!-- <nav class="navbar navbar-expand-lg bg-body nav-pills">
-      <div class="container container-fluid fw-medium">
-        <a class="navbar-brand" href="#">
-          <img src="image/logo.svg" width="140" alt="EquiParenting">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container d-flex">
+        <a class="navbar-brand" href="/equiparenting/home/index.html"> <img src="/Parenting/image/logo.svg" width="140"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse float-center]" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto me-auto">
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Beranda</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link ceritaku fw-bolder" aria-current="page">Parenting</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Video</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Ceritaku</a></li>
-          </ul>
-          <ul class="navbar-nav ms-auto me-auto">
-            <li class="nav-item mx-2 d-flex justify-content-end"><a class="nav-link masuk border" href="#">Masuk</a></li>
-            <li class="nav-item mx-2 d-flex justify-content-end"><a class="nav-link daftar" href="#">Daftar</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#"> <img src="/Parenting/image/logo.svg" width="140"> </a>
-        <!-- <button class="navbar-toggler" type="button"     data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-            <a class="nav-link dropdown-toggle" href="#">Parenting</a>
+        <div class="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
+          <div class="navbar-nav gap-5">
+            <a class="nav-link" aria-current="page" href="/equiparenting/home/index.html">Beranda</a>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Parenting
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" id="tips-parenting" href="/Parenting/index.html"
+                    onclick="changeCategory('Tips Parenting')">Tips Parenting</a></li>
+                <li><a class="dropdown-item" id="tips-permainan" href="/Parenting/index.html"
+                    onclick="changeCategory('Tips Permainan')">Tips Permainan</a></li>
+              </ul>
+            </div>
             <a class="nav-link" href="#">Video</a>
             <a class="nav-link" href="#">Ceritaku</a>
+            <div class="row">
+              <div class="col d-flex ms-5 gap-2">
+                <button type="submit" class="btn-login text-custom p-2 fs-6"
+                  onclick="window.location.href='/equiparenting/akun/login-page.html';">Masuk</button>
+                <button type="submit" class="btn-register p-2 fs-6"
+                  onclick="window.location.href='/equiparenting/akun/register-page.html';">Daftar</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
 
+  <!-- Article content section -->
   <div class="article" id="article">
     <div class="article-container mt-3">
       <div class="text-content">
@@ -82,11 +80,11 @@
           pandangan dan pilihan mereka." (Telegraph UK).</p>
         <p>Untuk menerapkan pola asuh gender neutral, Moms & Paps dapat mempertimbangkan beberapa tips berikut agar
           tidak terlewat:</p>
-        <p class="h4 mt-4">1. Kurangi Pentingnya Stigma Terhadap Gender</p>
+        <p class="h4 mt-4">Kurangi Pentingnya Stigma Terhadap Gender</p>
         <p>Gunakan bahasa yang tidak membatasi gender. Misalnya, ganti kalimat seperti "Kamu benar-benar gadis yang
           pintar!" dengan "Kamu anak yang pintar!". Hal ini membantu anak memahami bahwa mereka berharga sebagai
           manusia, bukan hanya sebagai laki-laki atau perempuan.</p>
-        <p class="h4 mt-4">2. Hindari Tema Merah Muda dan Biru</p>
+        <p class="h4 mt-4">Hindari Tema Merah Muda dan Biru</p>
         <p>Berhati-hatilah dalam mengaitkan stereotip gender pada warna. Hindari mengaitkan warna pink dengan anak
           perempuan dan biru dengan anak laki-laki. Biarkan anak memilih warna netral gender sesuai dengan
           preferensinya.</p>
@@ -94,21 +92,21 @@
           menentukan pilihan mereka. Bila pada akhirnya anak perempuan Moms & Paps suka warna pink, itu memang
           atas dasar pilihannya sendiri, bukan karena Moms & Paps yang memaksakan warna tersebut padanya sedari kecil.
         </p>
-        <p class="h4 mt-4">3. Dorong Anak Perempuan dan Laki-laki Bermain Bersama</p>
+        <p class="h4 mt-4">Dorong Anak Perempuan dan Laki-laki Bermain Bersama</p>
         <p>Sangat penting bagi anak-anak untuk merasa nyaman bermain dengan lawan jenis karena ini akan membuat
           mereka
           siap di masa depan. Seperti membangun hubungan di masa depan di tempat kerja, di rumah, dan di sekolah.
           Moms
           & Paps dapat mengajak anak terlibat ke dalam kegiatan campuran gender, seperti olahraga dan kelompok
           bermain.</p>
-        <p class="h4 mt-4">4. Jangan Menghilangkan Gender Secara Sepenuhnya</p>
+        <p class="h4 mt-4">Jangan Menghilangkan Gender Secara Sepenuhnya</p>
         <p>Moms & Paps bukan untuk menghapus gender, tetapi untuk mendorong anak mengejar semua minat, karier, dan hobi
           yang benar-benar ia inginkan. Dengan memastikan peluang dan pilihan mereka tidak dibatasi oleh gender, Moms
           dapat lebih menekankan bahwa ia bisa menyukai dan menjadi apapun yang ia inginkan.</p>
         <p>Contohnya, memasak adalah pekerjaan yang selama ini selalu diasosiasikan sebagai pekerjaan perempuan.
           Namun, anak laki-laki Moms & Paps tidak perlu merasa malu bila ia suka memasak dan nantinya menjadi chef yang
           andal.</p>
-        <p class="h4 mt-4">5. Ingat, Mainan Tidak Memiliki Gender</p>
+        <p class="h4 mt-4">Ingat, Mainan Tidak Memiliki Gender</p>
         <p>Jangan jadikan stereotip gender sebagai mainan anak laki-laki dan perempuan. Ini dapat memengaruhi anak dalam
           perkembangan psikologis dan fisik mereka. Biarkan Si Kecil bermain dengan berbagai macam mainan, sebagaimana
           tidak membedakan berdasarkan warna biru atau merah muda.</p>
@@ -122,7 +120,7 @@
           <div class="col-md-6"> -->
         <div class="account-register mt-5">
           <p class="text-custom">Masuk untuk menulis komentar
-            <a href="#" id="login-btn" class="btn">Masuk</a>
+            <a href="/equiparenting/akun/login-page.html" id="login-btn" class="btn">Masuk</a>
           </p>
         </div>
       </div>
@@ -132,16 +130,16 @@
           <div class="row d-flex justify-content-center">
             <div class="col-md-12">
               <p class="mb-4">Komentar <span> 1 </span></p>
-              <div class="card">
+              <div class="card-comment">
                 <div class="col">
                   <div class="mt-4 d-flex flex-start">
                     <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" width="65" height="65" />
 
-                    <div class="flex-grow-1 flex-shrink-1">
+                    <div class="flex-grow-1 flex-shrink-1 comment">
                       <div class="d-flex justify-content-between align-items-center">
                         <p class="mb-1">Maria Smantha <span class="small">- 2 hours ago</span></p>
                       </div>
-                      <p class="small mb-0">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
+                      <p class="small mb-0"> Setuju kalau neutral gender parenting itu penting.</p>
                     </div>
                   </div>
                 </div>
@@ -156,22 +154,22 @@
 
   <!-- Footer -->
   <footer class="daftar row">
-    <div class="col-md-3 mt-5 mb-5">
+    <div class="col-md-4 topic-footer">
       <h5 class="mb-3">Parenting</h5>
-      <p class="mb-3">Pola Asuh</p>
-      <p class="mb-3">Emosi & Self Awareness</p>
-      <p class="mb-3">Perilaku</p>
-      <p>Sosial</p>
+      <p class="mb-3" id="footer-polaasuh" onclick="changeTopic('footer-polaasuh')">Pola Asuh</p>
+      <p class="mb-3" id="footer-emosi" onclick="changeTopic('footer-emosi')">Emosi & Self Awareness</p>
+      <p class="mb-3" id="footer-perilaku" onclick="changeTopic('footer-perilaku')">Perilaku</p>
+      <p id="footer-sosial" onclick="changeTopic('footer-sosial')">Sosial</p>
     </div>
 
-    <div class="col-md-3 mt-5 mb-5">
+    <div class="col-md-4 contact">
       <h5 class="mb-3">Kontak</h5>
       <p class="mb-3"><i class="fas fa-phone"></i> (+62) 851-8888-1200</p>
       <p class="mb-3"><i class="fas fa-envelope"></i> equi.parenting@gmail.com</p>
       <p><i class="fab fa-instagram"></i> @equi_parenting</p>
     </div>
 
-    <div class="col-md-6 d-flex justify-content-end align-items-start mt-5">
+    <div class="col-md-4 d-flex justify-content-end align-items-start mt-5">
       <img src="/Parenting/image/logo.svg" alt="Logo" width="300px">
     </div>
   </footer>
@@ -182,7 +180,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  <script src="/Parenting/script.js"></script>
+  <!-- <script src="/Parenting/script.js"></script> -->
+
+  <script>
+    const queryString = window.location.search;
+    console.log(queryString);
+  </script>
+
 </body>
 
 </html>

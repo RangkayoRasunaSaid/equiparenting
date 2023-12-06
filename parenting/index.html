@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parenting</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -14,107 +14,54 @@
 <body>
   <!-- Header navbar -->
   <header class="header">
-    <!-- <nav class="navbar navbar-expand-lg bg-body nav-pills">
-      <div class="container container-fluid fw-medium">
-        <a class="navbar-brand" href="#">
-          <img src="image/logo.svg" width="140" alt="EquiParenting">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container d-flex">
+        <a class="navbar-brand" href="/equiparenting/home/index.html"> <img src="image/logo.svg" width="140"> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse float-center]" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto me-auto">
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Beranda</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link ceritaku fw-bolder" aria-current="page">Parenting</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Video</a></li>
-            <li class="nav-item mx-3 d-flex justify-content-center"><a class="nav-link" href="#">Ceritaku</a></li>
-          </ul>
-          <ul class="navbar-nav ms-auto me-auto">
-            <li class="nav-item mx-2 d-flex justify-content-end"><a class="nav-link masuk border" href="#">Masuk</a></li>
-            <li class="nav-item mx-2 d-flex justify-content-end"><a class="nav-link daftar" href="#">Daftar</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-
-    <!-- <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#"> <img src="image/logo.svg" width="140"> </a>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="#">Beranda</a>
-            <a class="nav-link dropdown-toggle dropdown-center" href="#">Parenting</a> -->
-              <!-- <ul class="dropdown-menu">
+        <div class="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
+          <div class="navbar-nav gap-5">
+            <a class="nav-link" aria-current="page" href="/equiparenting/home/index.html">Beranda</a>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Parenting
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" id="tips-parenting" href="#"
                     onclick="changeCategory('Tips Parenting')">Tips Parenting</a></li>
                 <li><a class="dropdown-item" id="tips-permainan" href="#"
                     onclick="changeCategory('Tips Permainan')">Tips Permainan</a></li>
-              </ul> -->
-            <!-- <a class="nav-link" href="#">Video</a>
-            <a class="nav-link" href="#">Ceritaku</a>
+              </ul>
+            </div>
+
+            <a class="nav-link" href="#">Video</a>
+            <a class="nav-link" href="/equiparenting/ceritaku/index.html">Ceritaku</a>
 
             <div class="row">
               <div class="col d-flex ms-5 gap-2">
-                <button type="submit" class="btn-login text-custom p-2">Masuk</button>
-                <button type="submit" class="btn-register p-2">Daftar</button>
+                <button type="submit" class="btn-login text-custom p-2 fs-6"
+                  onclick="window.location.href='/equiparenting/akun/login-page.html';">Masuk</button>
+                <button type="submit" class="btn-register p-2 fs-6"
+                  onclick="window.location.href='/equiparenting/akun/register-page.html';">Daftar</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </nav>  -->
-
-    <nav class="navbar navbar-expand-lg sticky-top navbar-light shadow-sm p-3 bg-body rounded fixed-top">
-        <a class="navbar-brand" href="#">
-          <img src="/Parenting/image/logo.svg" alt="Logo" height="60" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mx-auto gap-3">
-            <li class="nav-item mx-1">
-              <a class="nav-link" href="#">Beranda</a>
-            </li>
-            <li class="nav-item dropdown mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownParenting" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Parenting
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownParenting">
-                <li><a class="dropdown-item" href="#">Tips Parenting</a></li>
-                <li><a class="dropdown-item" href="#">Tips Permainan</a></li>
-              </ul>
-            </li>
-            <li class="nav-item mx-1">
-              <a class="nav-link" href="#">Video</a>
-            </li>
-            <li class="nav-item mx-1">
-              <a class="nav-link" href="#">Ceritaku</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item mx-1">
-              <a class="nav-link btn-login text-custom p-2 fs-6" href="#">Masuk</a>
-            </li>
-            <li class="nav-item mx-1">
-              <a class="nav-link btn-register p-2 fs-6" href="#">Daftar</a>
-            </li>
-          </ul>
-        </div>
-    </nav> 
-    <!-- END OF NAVBAR -->
+    </nav>
   </header>
 
   <main class="main">
     <!-- Dropdown menu of categories -->
     <div class="container mt-5">
       <div class="row">
-        <div class="col d-flex">
-          <h1>Tips for you</h1>
+        <div class="col d-flex first">
+          <h1 class="heading">Tips for you</h1>
 
-          <div class="category">
+          <div class="category gap-2">
             <div class="dropdown-center">
               <button class="btn dropdown-toggle" id="childAgeBtn" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -160,22 +107,22 @@
 
   <!-- Footer -->
   <footer class="daftar row">
-    <div class="col-md-3 mt-5 mb-5">
+    <div class="col-md-4 topic-footer">
       <h5 class="mb-3">Parenting</h5>
-      <p class="mb-3">Pola Asuh</p>
-      <p class="mb-3">Emosi & Self Awareness</p>
-      <p class="mb-3">Perilaku</p>
-      <p>Sosial</p>
+      <p class="mb-3" id="footer-polaasuh" onclick="changeTopic('footer-polaasuh')">Pola Asuh</p>
+      <p class="mb-3" id="footer-emosi" onclick="changeTopic('footer-emosi')">Emosi & Self Awareness</p>
+      <p class="mb-3" id="footer-perilaku" onclick="changeTopic('footer-perilaku')">Perilaku</p>
+      <p id="footer-sosial" onclick="changeTopic('footer-sosial')">Sosial</p>
     </div>
 
-    <div class="col-md-3 mt-5 mb-5">
+    <div class="col-md-4 contact">
       <h5 class="mb-3">Kontak</h5>
       <p class="mb-3"><i class="fas fa-phone"></i> (+62) 851-8888-1200</p>
       <p class="mb-3"><i class="fas fa-envelope"></i> equi.parenting@gmail.com</p>
       <p><i class="fab fa-instagram"></i> @equi_parenting</p>
     </div>
 
-    <div class="col-md-6 d-flex justify-content-end align-items-start mt-5">
+    <div class="col-md-4 d-flex justify-content-end align-items-start mt-5">
       <img src="image/logo.svg" alt="Logo" width="300px">
     </div>
   </footer>
