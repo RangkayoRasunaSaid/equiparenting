@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const apiUrlThreads = 'https://656b308bdac3630cf727d22c.mockapi.io/ceritaku/v1/threads/';
-    document.getElementById('writingView').style.display = 'none';
+    if (document.getElementById('writingView')) {
+      document.getElementById('writingView').style.display = 'none';
+    }
 
     // Call the function to update the navbar on page load
     updateNavbar();    
@@ -149,7 +151,10 @@ document.addEventListener('DOMContentLoaded', function() {
           .catch(error => console.error('Error fetching comments:', error));
   
         // Append the created thread element to the DOM
-        document.getElementById('app').appendChild(threadDiv);
+        if (document.getElementById('app')) {
+          document.getElementById('app').appendChild(threadDiv);
+        }
+        
       });
     })
     .catch(error => console.error('Error fetching threads:', error));
