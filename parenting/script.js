@@ -362,6 +362,8 @@ const changeCategory = (selectedCategory) => {
 
 // =============  Fetch and display articles based on topic category ============= 
 const displayArticles = (category = null) => {
+  document.querySelector('.main').style.display = 'block';
+  document.querySelector('#article').style.display = 'none';
   fetch(endpoint)
     .then(response => response.json())
     .then(data => {
