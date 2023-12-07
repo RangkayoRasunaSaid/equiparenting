@@ -160,56 +160,123 @@ document.addEventListener('DOMContentLoaded', function () {
       if (comments.length > 0) {
         comments.forEach((comment) => {
           commentsContainer.innerHTML = '';
-          const commentDiv = document.createElement('div');
-          commentDiv.classList.add('comment');
-
-          // Create a container for the avatar, username, and createdAt
-          const userInfoContainer = document.createElement('div');
-          userInfoContainer.classList.add('user-info-container', 'd-flex', 'align-items-center');
-      
-          // Avatar
-          const avatarImg = document.createElement('img');
-          avatarImg.src = comment.avatar;
-          avatarImg.classList.add('avatar');
-      
-          // Container for username and createdAt
-          const textInfoContainer = document.createElement('div');
-          textInfoContainer.classList.add('text-info-container');
-      
-          // Username
-          const usernameP = document.createElement('p');
-          usernameP.classList.add('username', 'm-0');
-          usernameP.textContent = comment.username;
-      
-          // CreatedAt
-          const createdAtP = document.createElement('p');
-          createdAtP.classList.add('created-at', 'm-0');
-          createdAtP.textContent = new Date(comment.createdAt).toLocaleString();
-      
-          // Append username and createdAt to the textInfoContainer
-          textInfoContainer.appendChild(usernameP);
-          textInfoContainer.appendChild(createdAtP);
-      
-          // Append avatar and textInfoContainer to the userInfoContainer
-          userInfoContainer.appendChild(avatarImg);
-          userInfoContainer.appendChild(textInfoContainer);
-      
-          // Comment content
-          const contentP = document.createElement('p');
-          contentP.classList.add('comment-text');
-          contentP.textContent = comment.content;
-      
-          commentDiv.appendChild(userInfoContainer);
-          commentDiv.appendChild(contentP);
-  
+          const commentDiv = createCommentElement(comment);  
           commentsContainer.appendChild(commentDiv);
         });
       } else {
-          commentsContainer.textContent = 'Belum ada komentar. Jadilah yang pertama!'
+          const noCommentMessage = document.createElement('p');
+          noCommentMessage.classList.add('mt-4', 'text-muted');
+          noCommentMessage.textContent = 'Belum ada komentar. Jadilah yang pertama!';
+          commentsContainer.appendChild(noCommentMessage);
       }
   
       articleContainer.appendChild(komentar);
       articleContainer.appendChild(commentsContainer);
+  
+      // Add a textarea with character limit
+      const textarea = document.createElement('textarea');
+      textarea.classList.add('form-control', 'mt-3');
+      textarea.setAttribute('rows', '1');
+
+      // Check if currentUser exists
+      if (!localStorage.getItem('currentUser')) {
+          // If currentUser doesn't exist, change placeholder and add event listener for redirection
+          textarea.setAttribute('placeholder', 'Sign in to comment');
+          textarea.classList.add('text-center');
+          textarea.style.cursor = 'pointer';
+          textarea.addEventListener('click', function() {
+              window.location.href = '../akun/login-page.html';
+          });
+      } else {
+          // If currentUser exists, set the regular placeholder
+          textarea.setAttribute('placeholder', 'Tambahkan komentar...');
+      }
+      
+      // Add a span to display characters left
+      const charactersLeftSpan = document.createElement('p');
+      charactersLeftSpan.classList.add('text-muted', 'small');
+      charactersLeftSpan.textContent = '200 characters left';
+      charactersLeftSpan.style.display = 'none';
+      let lenRowAdded = [];
+      
+      textarea.addEventListener('input', function () {
+        // Update characters left
+        const maxCharacters = 200;
+        const remainingCharacters = maxCharacters - this.value.trim().length;
+        charactersLeftSpan.textContent = `${remainingCharacters} characters left`;
+      
+        // Show/hide the "Post" button based on textarea value
+        if (this.value.trim().length > 0) {
+          postButton.style.display = 'block';
+          charactersLeftSpan.style.display = 'block';
+        } else {
+          this.rows = 1;
+          postButton.style.display = 'none';
+          charactersLeftSpan.style.display = 'none';
+        }
+
+        // Calculate the number of rows based on the length of the content
+        this.maxLength = maxCharacters;
+        if (isTextareaScrollable(this)) {
+          this.rows += 1;
+          lenRowAdded.push(remainingCharacters);
+        } else if (lenRowAdded[lenRowAdded.length - 1] < remainingCharacters) {
+          this.rows -= 1;
+          lenRowAdded.pop();
+        }
+      });
+      
+      // Add a "Post" button
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const postButton = document.createElement('button');
+      postButton.classList.add('btn', 'mt-3', 'ms-2', 'post-button'); // Added margin to separate the "Post" button
+      postButton.textContent = 'Post';
+      postButton.style.display = 'none'; // Initially hide the button
+      postButton.addEventListener('click', function () {
+        // Handle posting the comment to the mock API
+        const commentContent = textarea.value.trim();
+      
+        // Make a POST request to the API
+        fetch(commentsUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: currentUser.username.toLowerCase().split(" ").join(""),
+            avatar: currentUser.profilePicture,
+            content: commentContent,
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Comment posted successfully:', data);
+            textarea.value = '';
+            postButton.style.display = 'none';
+            charactersLeftSpan.style.display = 'none';
+            const commentDiv = createCommentElement(data);
+
+            // Check if this is the first comment of the thread
+            let hasDirectParagraphChild = Array.from(threadComment.children).some(function(child) {
+              return child.tagName.toLowerCase() === 'p';
+            });
+
+            if (hasDirectParagraphChild) {
+              commentsContainer.innerHTML = '';
+            }
+            commentsContainer.appendChild(commentDiv);
+          })
+          .catch(error => console.error('Error posting comment:', error));
+      });
+      
+      // Create a container for textarea, characters left, and the "Post" button
+      const commentContainer = document.createElement('div');
+      commentContainer.classList.add('d-flex', 'justify-content-between', 'align-items-center');
+      commentContainer.appendChild(charactersLeftSpan);
+      commentContainer.appendChild(postButton);
+      
+      articleContainer.appendChild(textarea);  
+      articleContainer.appendChild(commentContainer);
     }
   });    
 
@@ -220,6 +287,61 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+function isTextareaScrollable(textarea) {
+  // Check if the content overflows vertically
+  const isOverflowing = textarea.scrollHeight > textarea.clientHeight;
+
+  // Check if the textarea has the overflow property set to 'auto' or 'scroll'
+  const hasOverflowProperty = getComputedStyle(textarea).overflowY === 'auto' || getComputedStyle(textarea).overflowY === 'scroll';
+
+  return isOverflowing && hasOverflowProperty;
+}
+
+function createCommentElement(comment) {
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+
+  // Create a container for the avatar, username, and createdAt
+  const userInfoContainer = document.createElement('div');
+  userInfoContainer.classList.add('user-info-container', 'd-flex', 'align-items-center');
+
+  // Avatar
+  const avatarImg = document.createElement('img');
+  avatarImg.src = comment.avatar;
+  avatarImg.classList.add('avatar');
+
+  // Container for username and createdAt
+  const textInfoContainer = document.createElement('div');
+  textInfoContainer.classList.add('text-info-container');
+
+  // Username
+  const usernameP = document.createElement('p');
+  usernameP.classList.add('username', 'm-0');
+  usernameP.textContent = comment.username;
+
+  // CreatedAt
+  const createdAtP = document.createElement('p');
+  createdAtP.classList.add('created-at', 'm-0');
+  createdAtP.textContent = new Date(comment.createdAt).toLocaleString();
+
+  // Append username and createdAt to the textInfoContainer
+  textInfoContainer.appendChild(usernameP);
+  textInfoContainer.appendChild(createdAtP);
+
+  // Append avatar and textInfoContainer to the userInfoContainer
+  userInfoContainer.appendChild(avatarImg);
+  userInfoContainer.appendChild(textInfoContainer);
+
+  // Comment content
+  const contentP = document.createElement('p');
+  contentP.classList.add('comment-text');
+  contentP.textContent = comment.content;
+
+  commentDiv.appendChild(userInfoContainer);
+  commentDiv.appendChild(contentP);
+
+  return commentDiv;
+}
 
 // ============= Category button ============= 
 // Change the text on the button to the selected age
