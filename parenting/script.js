@@ -1,6 +1,6 @@
 // =============  Fetching article data from API ============= 
 // Define an asynchronous function to fetch and process article data
-const endpoint = "https://656bc554e1e03bfd572dd28f.mockapi.io/parenting/article"
+const endpoint = "https://65717eedd61ba6fcc012b991.mockapi.io/parenting/articles"
 const getArticles = async () => {
   try {
     const response = await fetch(endpoint); // Fetch data from API
@@ -14,23 +14,63 @@ const getArticles = async () => {
 
       // Iterate through each article and append HTML to the list
       data.forEach((article) => {
-        listArticles.innerHTML += `
-        <div class="row-md-3">
-            <div class="card mb-5">
-              <div class="row g-3">
-                <div class="col-md-6 order-md-2">
-                  <img src="image/${article.image}" class="img-fluid" style="float: right;">
-                </div>
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <h5 class="card-title">${article.title}</h5>
-                    <p class="card-text mt-3">${article.description}</p>
-                    <a href="articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>`;
+        // Create elements for the article
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('row-md-3');
+      
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card', 'mb-5');
+      
+        const rowDiv = document.createElement('div');
+        rowDiv.classList.add('row', 'g-3');
+      
+        const imageDiv = document.createElement('div');
+        imageDiv.classList.add('col-md-6', 'order-md-2');
+      
+        const image = document.createElement('img');
+        image.src = article.image;
+        image.classList.add('img-fluid');
+        image.style.float = 'right';
+      
+        imageDiv.appendChild(image);
+      
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('col-md-6');
+      
+        const cardBodyDiv = document.createElement('div');
+        cardBodyDiv.classList.add('card-body');
+      
+        const cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardTitle.textContent = article.title;
+      
+        const cardText = document.createElement('p');
+        cardText.classList.add('card-text', 'mt-3');
+        cardText.textContent = article.description;
+      
+        const readMoreLink = document.createElement('div');
+        readMoreLink.classList.add('btn', 'mt-2', 'read-more');
+        readMoreLink.setAttribute('data-title', article.title);
+        readMoreLink.setAttribute('data-image-url', article.image);
+        readMoreLink.setAttribute('data-markdown-url', article.content);
+        readMoreLink.textContent = 'Baca Selanjutnya';
+      
+        // Append elements in the hierarchy
+        cardBodyDiv.appendChild(cardTitle);
+        cardBodyDiv.appendChild(cardText);
+        cardBodyDiv.appendChild(readMoreLink);
+      
+        contentDiv.appendChild(cardBodyDiv);
+      
+        rowDiv.appendChild(imageDiv);
+        rowDiv.appendChild(contentDiv);
+      
+        cardDiv.appendChild(rowDiv);
+      
+        articleDiv.appendChild(cardDiv);
+      
+        // Append the article to the listArticles container
+        listArticles.appendChild(articleDiv);
       });
 
       // Log the array of articles to the console
@@ -47,7 +87,69 @@ const getArticles = async () => {
 
 // Call the function to fetch and display articles
 getArticles();
+document.querySelector('#article').style.display = 'none';
 
+
+// Add event listener to the links with the class 'read-more'
+document.addEventListener('DOMContentLoaded', function () {
+  // Create a new Showdown converter
+  const converter = new showdown.Converter();
+
+  // Add click event listener to a parent element
+  document.body.addEventListener('click', async (event) => {
+    const button = event.target.closest('.read-more');
+    if (button) {
+      // Hide the 'main' class
+      document.querySelector('.main').style.display = 'none';
+      document.querySelector('#article').style.display = 'block';
+  
+      // Fetch the content of the markdown file from GitHub
+      const response = await fetch(button.getAttribute('data-markdown-url'));
+      const markdownContent = await response.text();
+  
+      // Convert Markdown to HTML using showdown.js
+      const htmlContent = converter.makeHtml(markdownContent);
+  
+      // Replace the content of the 'main' class with the generated HTML
+      const articleContainer = document.querySelector('#markdown-container');
+      articleContainer.innerHTML = ''; // Clear existing content
+  
+      // Additional content (e.g., heading and image)
+      const headingDiv = document.createElement('div');
+      headingDiv.classList.add('heading');
+      const headingP = document.createElement('p');
+      headingP.classList.add('h3', 'my-4');
+      headingP.textContent = button.getAttribute('data-title');
+  
+      const imageDiv = document.createElement('div');
+      imageDiv.classList.add('image');
+      const articleImg = document.createElement('img');
+      articleImg.src = button.getAttribute('data-image-url');
+      articleImg.classList.add('img-fluid', 'rounded-start', 'mb-4');
+      articleImg.style.width = '100%';
+  
+      headingDiv.appendChild(headingP);
+      imageDiv.appendChild(articleImg);
+  
+      articleContainer.appendChild(headingDiv);
+      articleContainer.appendChild(imageDiv);
+  
+      // Create a temporary container for the HTML content
+      const tempContainer = document.createElement('div');
+      tempContainer.innerHTML = htmlContent;
+  
+      // Append each child node from the temporary container to the article container
+      tempContainer.childNodes.forEach((childNode) => {
+        articleContainer.appendChild(childNode.cloneNode(true));
+      });
+    }
+  });  
+
+  document.querySelector('#backLink').addEventListener('click', () => {
+    document.querySelector('#article').style.display = 'none';
+    document.querySelector('.main').style.display = 'block';
+  });
+});
 
 
 
@@ -65,7 +167,7 @@ const changeCategory = (selectedCategory) => {
 
 // =============  Fetch and display articles based on topic category ============= 
 const displayArticles = (category = null) => {
-  fetch('https://656bc554e1e03bfd572dd28f.mockapi.io/parenting/article')
+  fetch(endpoint)
     .then(response => response.json())
     .then(data => {
       const listArticles = document.getElementById('list-articles');
@@ -81,7 +183,7 @@ const displayArticles = (category = null) => {
               <div class="card mb-5">
                 <div class="row">
                   <div class="col-md-6 order-md-2">
-                    <img src="image/${article.image}" class="img-fluid" style="float: right;">
+                    <img src="${article.image}" class="img-fluid" style="float: right;">
                   </div>
                   <div class="col-md-6">
                     <div class="card-body">
