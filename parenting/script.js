@@ -178,23 +178,63 @@ const displayArticles = (category = null) => {
       article.forEach(article => {
         // Check if a category is specified or if the category matches
         if (!category || article.category === category) {
-          listArticles.innerHTML += `
-            <div class="row-md-4">
-              <div class="card mb-5">
-                <div class="row">
-                  <div class="col-md-6 order-md-2">
-                    <img src="${article.image}" class="img-fluid" style="float: right;">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body">
-                      <h5 class="card-title">${article.title}</h5>
-                      <p class="card-text mt-3">${article.description}</p>
-                      <a href="articles/article1.html?id=${article.id}" class="btn mt-2">Baca Selanjutnya</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>`;
+          // Create elements for the article
+          const articleDiv = document.createElement('div');
+          articleDiv.classList.add('row-md-3');
+        
+          const cardDiv = document.createElement('div');
+          cardDiv.classList.add('card', 'mb-5');
+        
+          const rowDiv = document.createElement('div');
+          rowDiv.classList.add('row', 'g-3');
+        
+          const imageDiv = document.createElement('div');
+          imageDiv.classList.add('col-md-6', 'order-md-2');
+        
+          const image = document.createElement('img');
+          image.src = article.image;
+          image.classList.add('img-fluid');
+          image.style.float = 'right';
+        
+          imageDiv.appendChild(image);
+        
+          const contentDiv = document.createElement('div');
+          contentDiv.classList.add('col-md-6');
+        
+          const cardBodyDiv = document.createElement('div');
+          cardBodyDiv.classList.add('card-body');
+        
+          const cardTitle = document.createElement('h5');
+          cardTitle.classList.add('card-title');
+          cardTitle.textContent = article.title;
+        
+          const cardText = document.createElement('p');
+          cardText.classList.add('card-text', 'mt-3');
+          cardText.textContent = article.description;
+        
+          const readMoreLink = document.createElement('div');
+          readMoreLink.classList.add('btn', 'mt-2', 'read-more');
+          readMoreLink.setAttribute('data-title', article.title);
+          readMoreLink.setAttribute('data-image-url', article.image);
+          readMoreLink.setAttribute('data-markdown-url', article.content);
+          readMoreLink.textContent = 'Baca Selanjutnya';
+        
+          // Append elements in the hierarchy
+          cardBodyDiv.appendChild(cardTitle);
+          cardBodyDiv.appendChild(cardText);
+          cardBodyDiv.appendChild(readMoreLink);
+        
+          contentDiv.appendChild(cardBodyDiv);
+        
+          rowDiv.appendChild(imageDiv);
+          rowDiv.appendChild(contentDiv);
+        
+          cardDiv.appendChild(rowDiv);
+        
+          articleDiv.appendChild(cardDiv);
+        
+          // Append the article to the listArticles container
+          listArticles.appendChild(articleDiv);
         }
       });
     })
