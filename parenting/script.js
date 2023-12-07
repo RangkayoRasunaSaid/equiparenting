@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const comments = await commentsResponse.json();
   
       if (comments.length > 0) {
+        commentsContainer.innerHTML = '';
         comments.forEach((comment) => {
-          commentsContainer.innerHTML = '';
           const commentDiv = createCommentElement(comment);  
           commentsContainer.appendChild(commentDiv);
         });
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const commentDiv = createCommentElement(data);
 
             // Check if this is the first comment of the thread
-            let hasDirectParagraphChild = Array.from(threadComment.children).some(function(child) {
+            let hasDirectParagraphChild = Array.from(commentsContainer.children).some(function(child) {
               return child.tagName.toLowerCase() === 'p';
             });
 
@@ -307,7 +307,12 @@ function createCommentElement(comment) {
 
   // Avatar
   const avatarImg = document.createElement('img');
-  avatarImg.src = comment.avatar;
+  if (!comment.avatar || comment.avatar == 'Profile.png') {
+    avatarImg.src = 'https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/user_profile_man-256.png';
+    avatarImg.classList.add('p-2');
+  } else {
+    avatarImg.src = comment.avatar;
+  }
   avatarImg.classList.add('avatar');
 
   // Container for username and createdAt

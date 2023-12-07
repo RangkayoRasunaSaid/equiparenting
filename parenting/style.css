@@ -306,10 +306,10 @@ footer p {
 
 .comments-container {
   margin-top: 20px; /* Adjust as needed */
+  border-bottom: 1px solid #ccc; /* Optional: Add a border between comments */
 }
 
 .comment {
-  border-bottom: 1px solid #ccc; /* Optional: Add a border between comments */
   padding-bottom: 10px; /* Optional: Adjust spacing between comments */
 }
 
