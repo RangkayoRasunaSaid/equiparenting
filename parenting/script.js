@@ -50,6 +50,7 @@ const getArticles = async () => {
       
         const readMoreLink = document.createElement('div');
         readMoreLink.classList.add('btn', 'mt-2', 'read-more');
+        readMoreLink.setAttribute('data-id', article.id);
         readMoreLink.setAttribute('data-title', article.title);
         readMoreLink.setAttribute('data-image-url', article.image);
         readMoreLink.setAttribute('data-markdown-url', article.content);
@@ -142,8 +143,75 @@ document.addEventListener('DOMContentLoaded', function () {
       tempContainer.childNodes.forEach((childNode) => {
         articleContainer.appendChild(childNode.cloneNode(true));
       });
+
+      const komentar = document.createElement('h5');
+      komentar.textContent = 'Komentar';
+      komentar.classList.add('mt-5');
+
+      const commentsContainer = document.createElement('div');
+      commentsContainer.classList.add('comments-container');
+
+  
+      // Fetch comments and display them
+      const commentsUrl = `https://65717eedd61ba6fcc012b991.mockapi.io/parenting/articles/${button.getAttribute('data-id')}/comments`;
+      const commentsResponse = await fetch(commentsUrl);
+      const comments = await commentsResponse.json();
+  
+      if (comments.length > 0) {
+        comments.forEach((comment) => {
+          commentsContainer.innerHTML = '';
+          const commentDiv = document.createElement('div');
+          commentDiv.classList.add('comment');
+
+          // Create a container for the avatar, username, and createdAt
+          const userInfoContainer = document.createElement('div');
+          userInfoContainer.classList.add('user-info-container', 'd-flex', 'align-items-center');
+      
+          // Avatar
+          const avatarImg = document.createElement('img');
+          avatarImg.src = comment.avatar;
+          avatarImg.classList.add('avatar');
+      
+          // Container for username and createdAt
+          const textInfoContainer = document.createElement('div');
+          textInfoContainer.classList.add('text-info-container');
+      
+          // Username
+          const usernameP = document.createElement('p');
+          usernameP.classList.add('username', 'm-0');
+          usernameP.textContent = comment.username;
+      
+          // CreatedAt
+          const createdAtP = document.createElement('p');
+          createdAtP.classList.add('created-at', 'm-0');
+          createdAtP.textContent = new Date(comment.createdAt).toLocaleString();
+      
+          // Append username and createdAt to the textInfoContainer
+          textInfoContainer.appendChild(usernameP);
+          textInfoContainer.appendChild(createdAtP);
+      
+          // Append avatar and textInfoContainer to the userInfoContainer
+          userInfoContainer.appendChild(avatarImg);
+          userInfoContainer.appendChild(textInfoContainer);
+      
+          // Comment content
+          const contentP = document.createElement('p');
+          contentP.classList.add('comment-text');
+          contentP.textContent = comment.content;
+      
+          commentDiv.appendChild(userInfoContainer);
+          commentDiv.appendChild(contentP);
+  
+          commentsContainer.appendChild(commentDiv);
+        });
+      } else {
+          commentsContainer.textContent = 'Belum ada komentar. Jadilah yang pertama!'
+      }
+  
+      articleContainer.appendChild(komentar);
+      articleContainer.appendChild(commentsContainer);
     }
-  });  
+  });    
 
   document.querySelector('#backLink').addEventListener('click', () => {
     document.querySelector('#article').style.display = 'none';

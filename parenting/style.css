@@ -304,6 +304,44 @@ footer p {
   margin-bottom: 4rem;
 }
 
+.comments-container {
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.comment {
+  border-bottom: 1px solid #ccc; /* Optional: Add a border between comments */
+  padding-bottom: 10px; /* Optional: Adjust spacing between comments */
+}
+
+.comment-text {
+  margin-left: 50px;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  border-radius: 50%;
+  margin-right: 10px; /* Adjust spacing between avatar and text */
+}
+
+.text-info-container {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.username {
+  font-weight: bold;
+}
+
+.created-at {
+  color: #777; /* Optional: Adjust color of createdAt */
+}
 
 
 /* Media queries */
