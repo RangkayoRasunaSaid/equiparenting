@@ -3,8 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&family=Happy+Monkey&family=Karla:wght@400;500&family=Lato:wght@400;700;900&family=Montserrat:wght@300;400;500;600&family=Nunito:wght@400;500;700;900&family=Open+Sans:wght@400;500;600&family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700;900&family=Source+Sans+3:wght@300;400;500&display=swap');
 
 body{
-  background-image: url(https://s3-alpha-sig.figma.com/img/376a/56f3/a93ac92f2056f6c2c2468a55eaae0ee4?Expires=1702252800&Signature=kJPz~tjdlb~thNJrsN3qa~ol~TRsDID6hGGMT3dHZ6soEXe4EW3ShQz4mcMoZefYHupcuaVrs-6HKMm8ej9YjZ4NtQmNKfTnxxyRLNUzGgr3aENUAQA~yd5KGODILKLpvm-RphzKnr5bDib~I4253H7~kinBZMMGPK6yoU7JnrUM4-fxssTWSBWsieQjdPpGWs2SOWgQWUT1RfsGFcJyNDEM-wvyZxHgp807h4wr8kpOijIxLZy8tF-XO2tAzNR2jJuPsveFjPu2uR0SJGKXMtma2eaO9ehLmqCuClK-EtQl7guLkFOK~bybfPI6ayajDjV1GsbaEXKiEWKO2nsxTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  /* background-image: url(https://s3-alpha-sig.figma.com/img/376a/56f3/a93ac92f2056f6c2c2468a55eaae0ee4?Expires=1702252800&Signature=kJPz~tjdlb~thNJrsN3qa~ol~TRsDID6hGGMT3dHZ6soEXe4EW3ShQz4mcMoZefYHupcuaVrs-6HKMm8ej9YjZ4NtQmNKfTnxxyRLNUzGgr3aENUAQA~yd5KGODILKLpvm-RphzKnr5bDib~I4253H7~kinBZMMGPK6yoU7JnrUM4-fxssTWSBWsieQjdPpGWs2SOWgQWUT1RfsGFcJyNDEM-wvyZxHgp807h4wr8kpOijIxLZy8tF-XO2tAzNR2jJuPsveFjPu2uR0SJGKXMtma2eaO9ehLmqCuClK-EtQl7guLkFOK~bybfPI6ayajDjV1GsbaEXKiEWKO2nsxTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4); */
+  background-image: url(https://s3-alpha-sig.figma.com/img/afb7/32f5/f179640818bcad081acd3a7bf98065b9?Expires=1702857600&Signature=L1wWXRByCyH~H8QTie6N0jQ5PvTBMqZFOHeVPsJYJSregUbtZRa41yIvSAdbNX0cGC81jmte4EpG12lOPgNxUOfZM~UsnzZQtQkGlDtMHuB8PSa96iVlG9MQE4eM6ZqrfWQpIHg8rQZLNa0g3iWfHmwSZDu-xR-AYbuvbeOmVXIOVcOKBor8IRlIB0M1rXGM2oJgApGWX7sJa4JWT71CT8WIeVIjvaKkmhVxZD5HFDKwJuxK--hq7TiXjQ7a5lR8t~RcYdl0nuPjLSzsbiXPIYcE3GThIMEYNM8NVSG11~Rn1wmiSyQlBCPXYLccI75G~3SO2nPBih3hG8yyqz3K7g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Nunito', Arial, Helvetica, sans-serif;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .featureTitle{
@@ -35,15 +37,7 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
-.trapezoid-crop {
-  width: 63vw; /* Sesuaikan dengan lebar gambar yang ingin di-crop */
-  height: 85vh; /* Sesuaikan dengan tinggi gambar yang ingin di-crop */
-  max-width: none;
-  background-image: url('https://s3-alpha-sig.figma.com/img/be51/f63c/fe092f9645333f272b9a8ec3d2f79021?Expires=1702252800&Signature=STIvJMtX5Qfx7ch1YByEG3k9sxWJ7D8jVQJ1SZks0IIzjE2jEKr5icN2PAJpfLLQ4qygA0A0i7ljy14H8rPLTVZWUnLmp1F4aV2cWQwqpuBmtK~PI1VxqALVhYQaztS~hneJkyGdl6WDxS9FmeGOIN1DsWDZR1Dnz3x1u2eyfuvcJNnKRhlLaPSN19hmVgMh2IlKEUffqqlsaikZvllf7F2F9lvLMdgQRBTBFWUAKbUISEeGNmpuHPPZjK6PuALBVAKqbV9NAErQzE0z4B5iZxVbAo6CLp7hEXDHGm6XnWaX9u~zpg2PHLcnuLBl0aduKk36X3iDbFLQ~NDzblEXWw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'); /* Ganti dengan URL gambar yang ingin di-crop */
-  background-size: cover;
-  -webkit-clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-}
+
 .card {
   margin: 0 0.5em;
   border-radius: 0;
@@ -58,7 +52,6 @@ img {
   -webkit-line-clamp: 12; /* Jumlah baris teks yang ingin ditampilkan sebelum ellipsis */
   -webkit-box-orient: vertical;
 }
-
 .footer {
   position: relative;
   bottom: 0;
@@ -154,7 +147,6 @@ img {
     opacity: 0.8;
   }
 }
-
 @media screen and (max-width: 699px) {
   #carouselCard {
     padding: 0 4rem;
@@ -180,22 +172,178 @@ img {
   .carousel-control-next:hover {
     opacity: 0.8;
   }
-}
-@media (max-width: 1023px) {
-  .navbar-collapse {
-    position: absolute;
-    top: 6rem; /* Atur tinggi navbar jika diperlukan */
-    right: 1rem;
-    z-index: 1000;
-    width: 50%;
-    height: 300px;
-    background-color: #29053c; /* Atur warna latar belakang navbar */
-    padding: 1rem;
+  .trapezoid-crop-sm {
+    width: 80vw; /* Sesuaikan dengan lebar gambar yang ingin di-crop */
+    height: 40vh; /* Sesuaikan dengan tinggi gambar yang ingin di-crop */
+    max-width: none;
+    background-image: url('https://s3-alpha-sig.figma.com/img/be51/f63c/fe092f9645333f272b9a8ec3d2f79021?Expires=1702252800&Signature=STIvJMtX5Qfx7ch1YByEG3k9sxWJ7D8jVQJ1SZks0IIzjE2jEKr5icN2PAJpfLLQ4qygA0A0i7ljy14H8rPLTVZWUnLmp1F4aV2cWQwqpuBmtK~PI1VxqALVhYQaztS~hneJkyGdl6WDxS9FmeGOIN1DsWDZR1Dnz3x1u2eyfuvcJNnKRhlLaPSN19hmVgMh2IlKEUffqqlsaikZvllf7F2F9lvLMdgQRBTBFWUAKbUISEeGNmpuHPPZjK6PuALBVAKqbV9NAErQzE0z4B5iZxVbAo6CLp7hEXDHGm6XnWaX9u~zpg2PHLcnuLBl0aduKk36X3iDbFLQ~NDzblEXWw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'); /* Ganti dengan URL gambar yang ingin di-crop */
+    background-size: cover;
+    -webkit-clip-path: polygon(70% 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+    border-color: #392c60;
   }
-  .navbar-light .navbar-nav .nav-link{
-    color: #e2acff;
+
+}
+
+
+  @media screen and (max-width: 992px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 6rem; /* Atur tinggi navbar jika diperlukan */
+      right: 1rem;
+      z-index: 1000;
+      width: 50%;
+      height: 60vh;
+      background-color: #675893; /* Atur warna latar belakang navbar */
+      padding: 1rem;
+    }
+    .navbar-light .navbar-nav .nav-link{
+      color: #ffffff;
+    }
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+      color: rgb(1, 242, 242);
+    }
+    .dropdown-menu{
+      background-color: aqua !important;
+      padding-top: 0;
+      padding-bottom:  0;
+    }
   }
-  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: rgb(255, 255, 255);
-}
-}
+
+
+  @media screen and (min-width: 1000px){
+    .filledColorButtonLight{
+      border-radius: .5rem;
+      padding: 5px 20px;
+      height: 5.5vh;
+      width: 12.5vw;
+      text-align: center;
+      text-decoration: none;
+    }
+    .filledColorButtonLight:hover{
+      background-color:#E8DEF7; 
+      color: #392c60 !important;
+      border: 3px solid #675893;; 
+      font-weight: 900;
+    }
+    .borderedColorButtonDark, .filledColorButtonDark{
+        border-radius: .5rem;
+        padding: 5px 20px;
+        height: 5.5vh;
+        width: 5.5vw;
+        text-align: center;
+        text-decoration: none;
+    }
+    .borderedColorButtonDark {
+        border: 3px solid #675893; 
+        color: #675893 !important;
+    }
+    .filledColorButtonDark{
+      background-color:#675893; 
+      color: #ffffff !important;
+      border: 3px solid #675893; 
+    }
+    .borderedColorButtonDark:hover{
+      background-color:#392c60; 
+      color: #ffffff !important;
+      border: 3px solid #675893; 
+    }
+    .filledColorButtonDark:hover{
+      border: 3px solid #675893; 
+      background-color: #392c60; 
+      color: #ffffff!important;
+    }
+    .nav-link{
+      display:inline !important;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: .5rem 0;
+      font-family: 'Nunito', sans-serif;
+    }
+    
+    .card-hero {
+      width: 155vw;
+      height: 85vh;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background-image: url(https://s3-alpha-sig.figma.com/img/afb7/32f5/f179640818bcad081acd3a7bf98065b9?Expires=1702857600&Signature=L1wWXRByCyH~H8QTie6N0jQ5PvTBMqZFOHeVPsJYJSregUbtZRa41yIvSAdbNX0cGC81jmte4EpG12lOPgNxUOfZM~UsnzZQtQkGlDtMHuB8PSa96iVlG9MQE4eM6ZqrfWQpIHg8rQZLNa0g3iWfHmwSZDu-xR-AYbuvbeOmVXIOVcOKBor8IRlIB0M1rXGM2oJgApGWX7sJa4JWT71CT8WIeVIjvaKkmhVxZD5HFDKwJuxK--hq7TiXjQ7a5lR8t~RcYdl0nuPjLSzsbiXPIYcE3GThIMEYNM8NVSG11~Rn1wmiSyQlBCPXYLccI75G~3SO2nPBih3hG8yyqz3K7g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+      background-size: fill;
+      box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
+     
+      .img-hero {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.9;
+        transition: opacity .2s ease-out;
+        -webkit-clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(40% 0, 100% 0, 100% 100%, 30% 100%);
+      }
+    
+      #title-hero {
+        position: absolute;
+        inset: auto auto 300px 30px;
+        margin: 0;
+        transition: inset .3s .3s ease-out;
+        font-family: 'Nunito';
+        font-weight: 900;
+        text-transform: uppercase;
+        color: #675893!important;
+      }
+    
+      #subtitle-hero, #text-hero, #btn-hero {
+        position: absolute;
+        opacity: 0;
+        max-width: 80%;
+        transition: opacity .3s ease-out;
+        color: #0c0427!important;
+      }
+      #subtitle-hero {
+        inset: auto auto 480px 30px;
+      }
+      #text-hero {
+        inset: auto auto 280px 30px;
+        max-width: 430px;
+      }
+      #btn-hero {
+        inset: auto auto 40px 30px;
+        color: inherit;
+        text-decoration: none;
+        padding: 0 12px;
+      }
+      
+      &:hover #title-hero {
+        inset: auto auto 520px 30px;
+        transition: inset .3s ease-out;
+      }
+      
+      &:hover #subtitle-hero, &:hover #text-hero, &:hover #btn-hero {
+        opacity: 1;
+        transition: opacity .5s .1s ease-in;
+      }
+      #btn-hero:hover{
+        background-color: #675893;
+        color: #ffffff !important;
+        font-weight: 700;
+      }
+      &:hover .img-hero {
+        transition: opacity .3s ease-in;
+        opacity: 1;
+      }
+    }
+    
+    .material-symbols-outlined {
+      vertical-align: middle;
+    }
+    
+  
+  }
