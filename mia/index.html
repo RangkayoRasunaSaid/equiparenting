@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parenting</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header navbar -->
+    <header class="header">
+      <nav
+        class="navbar navbar-expand-lg sticky-top navbar-light shadow p-3 bg-body rounded fixed-top"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./home/assets/logo.svg" alt="Logo" height="50" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mx-auto">
+              <li class="nav-item mx-1">
+                <a class="nav-link filledColorButtonLight" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown mx-1">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownParenting"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Parenting
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownParenting"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item filledColorButtonLight"
+                      href="../index.html"
+                      >Tips Parenting</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item filledColorButtonLight" href="#"
+                      >Tips Permainan</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item mx-1">
+                <a class="nav-link filledColorButtonLight" href="#">Video</a>
+              </li>
+              <li class="nav-item mx-1">
+                <a class="nav-link filledColorButtonLight" href="#">Ceritaku</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item mx-1">
+                <a
+                  class="nav-link borderedColorButtonDark"
+                  href="../akun/login-page.html"
+                  >Masuk</a
+                >
+              </li>
+              <li class="nav-item mx-1">
+                <a
+                  class="nav-link filledColorButtonDark"
+                  href="../akun/register-page.html"
+                  >Daftar</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Dropdown menu of categories -->
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col d-flex">
+            <h1>Tips for you</h1>
+
+            <div class="category">
+              <div class="dropdown-center">
+                <button
+                  class="btn dropdown-toggle"
+                  id="childAgeBtn"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Usia Anak
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="changeChildAge('0-2 tahun')"
+                      >0-2 tahun</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="changeChildAge('3 tahun')"
+                      >3 tahun</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="changeChildAge('4 tahun')"
+                      >4 tahun</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onclick="changeChildAge('5 tahun')"
+                      >5 tahun</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="dropdown-center">
+                <button
+                  class="btn dropdown-toggle"
+                  id="categoryBtn"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Kategori
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      id="tips-parenting"
+                      href="#"
+                      onclick="changeCategory('Tips Parenting')"
+                      >Tips Parenting</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      id="tips-permainan"
+                      href="#"
+                      onclick="changeCategory('Tips Permainan')"
+                      >Tips Permainan</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article nav based on topic category  -->
+      <div class="topics" id="topics">
+        <p id="all" onclick="changeStyle('all')">All</p>
+        <p id="Pola Asuh" onclick="changeStyle('Pola Asuh')">Pola Asuh</p>
+        <p
+          id="Emosi & Self Awarness"
+          onclick="changeStyle('Emosi & Self Awarness')"
+        >
+          Emosi & Self Awarness
+        </p>
+        <p id="Perilaku" onclick="changeStyle('Perilaku')">Perilaku</p>
+        <p id="Sosial" onclick="changeStyle('Sosial')">Sosial</p>
+      </div>
+      <!-- Article card -->
+      <div class="row-articles" id="list-articles"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="daftar row">
+      <div class="col-md-3 mt-5 mb-5">
+        <h5 class="mb-3">Parenting</h5>
+        <p class="mb-3">Pola Asuh</p>
+        <p class="mb-3">Emosi & Self Awarness</p>
+        <p class="mb-3">Perilaku</p>
+        <p>Sosial</p>
+      </div>
+
+      <div class="col-md-3 mt-5 mb-5">
+        <h5 class="mb-3">Kontak</h5>
+        <p class="mb-3"><i class="fas fa-phone"></i> (+62) 851-8888-1200</p>
+        <p class="mb-3">
+          <i class="fas fa-envelope"></i> equi.parenting@gmail.com
+        </p>
+        <p><i class="fab fa-instagram"></i> @equi_parenting</p>
+      </div>
+
+      <div class="col-md-6 d-flex justify-content-end align-items-start mt-5">
+        <img src="image/logo.svg" alt="Logo" width="300px" />
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

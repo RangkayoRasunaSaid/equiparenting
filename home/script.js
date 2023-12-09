@@ -47,7 +47,7 @@ function initializeCarousel(cardWidth) {
 // Fungsi untuk mengambil data dari API
 async function fetchData() {
   try {
-    const response = await fetch('https://656951b9de53105b0dd6e600.mockapi.io/articles/article');
+    const response = await fetch('https://656bc554e1e03bfd572dd28f.mockapi.io/parenting/article');
     const data = await response.json();
     return data; // Mengembalikan data dari API
   } catch (error) {
@@ -77,12 +77,12 @@ async function isiCarouselDenganData() {
       card.innerHTML = `
         <div class="card">
           <div class="card-img-top">
-            <img src="${item.imageHeader}" alt="${item.title}" />
+            <img src="../mia/image/${item.image}" alt="${item.title}" />
           </div>
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
-            <p class="card-text">${item.content}</p>
-            <a href="${item.id}" class="btn btn-primary">Baca Selengkapnya</a>
+            <p class="card-text">${item.description}</p>
+            <a id="bacaSelanjutnyaBtn-${item.id}" href="../mia/articles/article1.html?id=${item.id}" class="btn btn-primary">Baca Selengkapnya</a>
           </div>
         </div>
       `;
