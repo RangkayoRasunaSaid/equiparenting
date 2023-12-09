@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem('currentUser', JSON.stringify(user));
 
       alert('Login berhasil');
-      window.location.href = '#.html';
+      window.location.href = '../home/index.html';
     });
   });
   
