@@ -5,7 +5,7 @@ body{
   background-image: url(https://s3-alpha-sig.figma.com/img/afb7/32f5/f179640818bcad081acd3a7bf98065b9?Expires=1702857600&Signature=L1wWXRByCyH~H8QTie6N0jQ5PvTBMqZFOHeVPsJYJSregUbtZRa41yIvSAdbNX0cGC81jmte4EpG12lOPgNxUOfZM~UsnzZQtQkGlDtMHuB8PSa96iVlG9MQE4eM6ZqrfWQpIHg8rQZLNa0g3iWfHmwSZDu-xR-AYbuvbeOmVXIOVcOKBor8IRlIB0M1rXGM2oJgApGWX7sJa4JWT71CT8WIeVIjvaKkmhVxZD5HFDKwJuxK--hq7TiXjQ7a5lR8t~RcYdl0nuPjLSzsbiXPIYcE3GThIMEYNM8NVSG11~Rn1wmiSyQlBCPXYLccI75G~3SO2nPBih3hG8yyqz3K7g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, .featureTitle{
   margin-top: 0;
@@ -56,14 +56,14 @@ img {
   width: auto;
 }
 #footerNavLink > .row{
-  /* margin: 0;
-  padding: 2rem 1rem; */
+  /* margin: 0; */
+  padding: 2rem 1rem;
   background-color: #675893;
   color: white;
 }
-/* #footerNavLink{
-  padding: 0;
-} */
+.list-unstyled > li {
+  padding: 4px;
+}
 
 /* Media query CSS */
 @media screen and (min-width: 930px) {
@@ -260,7 +260,7 @@ img {
       justify-content: center;
       align-items: center;
       padding: .5rem 0;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
     
     .card-hero {
@@ -292,7 +292,7 @@ img {
         inset: auto auto 300px 30px;
         margin: 0;
         transition: inset .3s .3s ease-out;
-        font-family: 'Nunito';
+        font-family: 'Poppins';
         font-weight: 900;
         text-transform: uppercase;
         color: #675893!important;
@@ -307,10 +307,11 @@ img {
       }
       #subtitle-hero {
         inset: auto auto 480px 30px;
+        font-weight: 700 !important;
       }
       #text-hero {
-        inset: auto auto 280px 30px;
-        max-width: 430px;
+        inset: auto auto 260px 30px;
+        max-width: 380px;
       }
       #btn-hero {
         inset: auto auto 40px 30px;
