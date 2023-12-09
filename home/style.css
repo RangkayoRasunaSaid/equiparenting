@@ -18,6 +18,12 @@ body{
   margin-right: auto;
   margin-left: auto;
 }
+.disabled-link {
+  pointer-events: none !important; /* Menonaktifkan tautan */
+  color: gray !important; /* Warna abu-abu untuk memberikan kesan dinonaktifkan */
+  text-decoration: none !important; /* Menghilangkan garis bawah */
+  cursor: not-allowed !important; /* Mengganti kursor menjadi not-allowed */
+}
 #firstSection, #secondSection,#carouselCard{
   margin: auto;
   padding: 0 3rem;
