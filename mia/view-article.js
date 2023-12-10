@@ -14,7 +14,7 @@ const getArticleDetails = async () => {
 
     // Tampilkan informasi artikel di halaman
     document.getElementById('articleTitle').innerHTML = data.title;
-    document.getElementById('articleImage').src = `../image/${data.image}`;
+    document.getElementById('articleImage').src = `../mia/image/${data.image}`;
     document.getElementById('articleContent').innerHTML = data.content;
     // Tambahkan informasi lainnya sesuai kebutuhan
     
