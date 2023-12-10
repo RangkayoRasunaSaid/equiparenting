@@ -1,0 +1,3 @@
+[build]
+  base = "dev"  # Folder sumber proyek
+  publish = "dev/home"  # Folder yang akan dipublikasikan (termasuk subfolder home)
