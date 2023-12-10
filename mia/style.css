@@ -29,7 +29,12 @@ main {
   margin: 5rem 0;
   padding: 1.5rem 7.5rem;
 }
-
+.disabled-link {
+  pointer-events: none !important; /* Menonaktifkan tautan */
+  color: gray !important; /* Warna abu-abu untuk memberikan kesan dinonaktifkan */
+  text-decoration: none !important; /* Menghilangkan garis bawah */
+  cursor: not-allowed !important; /* Mengganti kursor menjadi not-allowed */
+}
 /* .header {
   padding: 1px 8%;
   position: fixed;
