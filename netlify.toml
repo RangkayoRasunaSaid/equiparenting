@@ -1,6 +1,6 @@
 [build]
   base = "dev"  # Folder sumber proyek
-  publish = "dev"  # Folder yang akan dipublikasikan (termasuk subfolder home)
+  publish = "dev/home"  # Folder yang akan dipublikasikan (termasuk subfolder home)
 
 [[redirects]]
 from = "/*"
