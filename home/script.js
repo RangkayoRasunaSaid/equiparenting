@@ -82,7 +82,7 @@ async function isiCarouselDenganData() {
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
             <p class="card-text">${item.description}</p>
-            <a id="bacaSelanjutnyaBtn-${item.id}" href="../mia/articles/article1.html?id=${item.id}" class="btn btn-primary">Baca Selengkapnya</a>
+            <a id="bacaSelanjutnyaBtn-${item.id}" href="../mia/view-article.html?id=${item.id}" class="btn btn-primary">Baca Selengkapnya</a>
           </div>
         </div>
       `;
