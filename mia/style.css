@@ -35,6 +35,32 @@ main {
   text-decoration: none !important; /* Menghilangkan garis bawah */
   cursor: not-allowed !important; /* Mengganti kursor menjadi not-allowed */
 }
+.active-page {
+  background-color: #b49fd1 !important;
+  color: #392c60!important;
+  font-weight: 900 !important;
+}
+.navbar-toggler {
+  background-color: #b49fd1;
+}
+.masuk{
+  background-color: #f4f2fc !important;
+  color: #392c60;
+  border: 3px solid #675893 !important;
+}
+.masuk:hover {
+  background-color: #c1b7e7 !important;
+  color: #392c60;
+  border: 3px solid #675893 !important;
+}
+.daftar {
+  background-color: #392c60 !important;
+  color: #fbf8ff !important;
+}
+.daftar:hover{
+  background-color: #180c3b !important;
+  color: #fbf8ff !important;
+}
 /* .header {
   padding: 1px 8%;
   position: fixed;
