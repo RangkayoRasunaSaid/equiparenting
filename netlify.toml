@@ -1,0 +1,8 @@
+[build]
+  base = "dev"  # Folder sumber proyek
+  publish = "dev/home"  # Folder yang akan dipublikasikan (termasuk subfolder home)
+
+[[redirects]]
+from = "/home"
+to = "index.html"
+status = 200
