@@ -77,7 +77,7 @@ async function isiCarouselDenganData() {
       card.innerHTML = `
         <div class="card">
           <div class="card-img-top">
-            <img src="..${item.image}" alt="${item.title}" />
+            <img src="${item.image}" alt="${item.title}" />
           </div>
           <div class="card-body">
             <h5 class="card-title">${item.title}</h5>
